@@ -1,19 +1,21 @@
-# Import de la classe Joueur depuis le fichier joueur.py.
-# Cela permet d'utiliser la classe dans ce fichier principal.
+# Import des classes du projet.
+# Ces imports permettent d'utiliser les modèles définis dans le dossier models.
+
+# Import de la classe Joueur.
+# Cette classe représente un joueur du tournoi.
 from models.joueur import Joueur
 
-# Import de la classe Match depuis le fichier match.py.
-# Cela permet de créer un match entre deux joueurs.
+# Import de la classe Match.
+# Cette classe représente un match entre deux joueurs.
 from models.match import Match
 
-# Import de la classe Tournoi depuis le fichier tournoi.py.
-# Cela permet de créer un tournoi.
+# Import de la classe Tournoi.
+# Cette classe représente l'objet principal qui regroupe joueurs et tours.
 from models.tournoi import Tournoi
 
+# Création d'objets Joueur.
+# Chaque objet représente un joueur avec ses informations.
 
-# Création d'un premier joueur de test.
-# Ici, on crée un objet Joueur avec des données fixes
-# pour vérifier que la classe fonctionne correctement.
 joueur_test = Joueur(
     "Alice",
     "Martin",
@@ -22,8 +24,6 @@ joueur_test = Joueur(
     1200,
 )
 
-# Création d'un deuxième joueur de test.
-# Ce joueur servira à tester la création d'un match.
 joueur_2 = Joueur(
     "Bob",
     "Durand",
@@ -32,16 +32,20 @@ joueur_2 = Joueur(
     1150,
 )
 
-# Création d'un match de test entre les deux joueurs.
-# On donne ici un score de 1 pour le premier joueur
-# et 0 pour le deuxième.
+
+# Création d'un objet Match.
+# Le match relie deux objets Joueur et enregistre leur score.
 match_test = Match(joueur_test, joueur_2, 1, 0)
 
+
+# Création d'un objet Tournoi.
+# Cet objet représente un tournoi et contiendra les joueurs et les tours.
 tournoi = Tournoi("Tournoi de Paris", "Paris", "01/01/2024", "Tournoi test")
 
 
-# Affichage des objets dans la console.
-# Grâce aux méthodes __str__, l'affichage sera lisible.
+# Affichage des objets créés.
+# Les méthodes spéciales __str__ définies dans les classes
+# permettent d'obtenir une représentation texte lisible.
 print(joueur_test)
 print(joueur_2)
 print(match_test)
