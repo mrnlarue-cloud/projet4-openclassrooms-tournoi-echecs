@@ -3,58 +3,43 @@
 class Tournoi:
 
     def __init__(self, nom, lieu, date_debut, description, nombre_tours=4):
-        # Informations générales du tournoi.
+        # Informations principales du tournoi.
         self.nom = nom
         self.lieu = lieu
         self.date_debut = date_debut
-        # On ne peut pas déjà savoir.
+
+        # La date de fin n'est pas connue au moment de la création du tournoi.
         self.date_fin = None
+
         self.description = description
 
-        # Nombre de tours (4 par défaut).
+        # Nombre de tours prévus dans le tournoi (4 par défaut).
         self.nombre_tours = nombre_tours
 
-        # Liste des joueurs inscrits.
+        # Liste des joueurs inscrits dans le tournoi.
         self.joueurs = []
 
-        # Liste des tours joués.
+        # Liste des tours joués pendant le tournoi.
         self.tours = []
 
     def ajouter_joueur(self, joueur):
-        # Ajoute un joueur dans la liste des joueurs du tournoi
+        # Ajoute un objet Joueur dans la liste des joueurs du tournoi.
         self.joueurs.append(joueur)
 
     def ajouter_tour(self, tour):
-        # Ajoute un tour dans la liste des tours
+        # Ajoute un objet Tour dans la liste des tours du tournoi.
         self.tours.append(tour)
 
     def __str__(self):
-        # La méthode spéciale __str__ sert à définir
-        # ce qui doit s'afficher quand on utilise print()
-        # sur un objet de la classe Tournoi.
-        #
-        # Exemple :
-        # print(tournoi)
-        #
-        # Sans cette méthode, Python afficherait quelque chose
-        # de peu lisible comme :
-        # <models.tournoi.Tournoi object at 0x000001...>
-        #
-        # Grâce à __str__, on peut afficher une description
-        # claire et compréhensible du tournoi.
+        # Méthode spéciale appelée lorsque l'on fait print(tournoi).
+        # Elle définit la représentation texte de l'objet Tournoi.
 
         return (
-            # f signifie "f-string".
-            # Cela permet d'insérer des variables directement
-            # dans une chaîne de texte avec des accolades {}.
-            # self.nom correspond au nom du tournoi.
+            # f-string : permet d'insérer des variables dans une chaîne de texte.
             f"Tournoi : {self.nom} | "
-            # self.lieu correspond au lieu où se déroule le tournoi.
             f"Lieu : {self.lieu} | "
-            # len(self.joueurs) compte le nombre d'éléments
-            # dans la liste des joueurs inscrits au tournoi.
+
+            # len() permet de compter le nombre d'éléments dans une liste.
             f"Joueurs inscrits : {len(self.joueurs)} | "
-            # len(self.tours) compte le nombre de tours
-            # déjà enregistrés dans le tournoi.
             f"Tours joués : {len(self.tours)}"
         )
