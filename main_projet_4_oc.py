@@ -6,7 +6,6 @@ from models.joueur import Joueur
 # Cela permet de créer un match entre deux joueurs.
 from models.match import Match
 
-
 # Création d'un premier joueur de test.
 # Ici, on crée un objet Joueur avec des données fixes
 # pour vérifier que la classe fonctionne correctement.
