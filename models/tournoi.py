@@ -18,3 +18,7 @@ class Tournoi:
 
         # Liste des tours joués.
         self.tours = []
+
+    def ajouter_joueur(self, joueur):
+        # Ajoute un joueur dans la liste des joueurs du tournoi
+        self.joueurs.append(joueur)
