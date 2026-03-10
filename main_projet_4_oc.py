@@ -6,6 +6,11 @@ from models.joueur import Joueur
 # Cela permet de créer un match entre deux joueurs.
 from models.match import Match
 
+# Import de la classe Tournoi depuis le fichier tournoi.py.
+# Cela permet de créer un tournoi.
+from models.tournoi import Tournoi
+
+
 # Création d'un premier joueur de test.
 # Ici, on crée un objet Joueur avec des données fixes
 # pour vérifier que la classe fonctionne correctement.
@@ -32,8 +37,12 @@ joueur_2 = Joueur(
 # et 0 pour le deuxième.
 match_test = Match(joueur_test, joueur_2, 1, 0)
 
+tournoi = Tournoi("Tournoi de Paris", "Paris", "01/01/2024", "Tournoi test")
+
+
 # Affichage des objets dans la console.
 # Grâce aux méthodes __str__, l'affichage sera lisible.
 print(joueur_test)
 print(joueur_2)
 print(match_test)
+print(tournoi)
