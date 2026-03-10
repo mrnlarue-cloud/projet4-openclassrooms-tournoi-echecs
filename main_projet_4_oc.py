@@ -13,6 +13,8 @@ from models.match import Match
 # Cette classe représente l'objet principal qui regroupe joueurs et tours.
 from models.tournoi import Tournoi
 
+from models.tour import Tour
+
 # Création d'objets Joueur.
 # Chaque objet représente un joueur avec ses informations.
 
@@ -41,6 +43,10 @@ match_test = Match(joueur_1, joueur_2, 1, 0)
 # Création d'un objet Tournoi.
 # Cet objet représente un tournoi et contiendra les joueurs et les tours.
 tournoi = Tournoi("Tournoi de Paris", "Paris", "01/01/2024", "Tournoi test")
+
+tour1 = Tour("Tour 1")
+tour1.ajouter_match(match_test)
+tournoi.ajouter_tour(tour1)
 
 tournoi.ajouter_joueur(joueur_1)
 tournoi.ajouter_joueur(joueur_2)
