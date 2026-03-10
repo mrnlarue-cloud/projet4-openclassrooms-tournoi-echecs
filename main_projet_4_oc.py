@@ -16,7 +16,7 @@ from models.tournoi import Tournoi
 # Création d'objets Joueur.
 # Chaque objet représente un joueur avec ses informations.
 
-joueur_test = Joueur(
+joueur_1 = Joueur(
     "Alice",
     "Martin",
     "01/01/1990",
@@ -35,18 +35,20 @@ joueur_2 = Joueur(
 
 # Création d'un objet Match.
 # Le match relie deux objets Joueur et enregistre leur score.
-match_test = Match(joueur_test, joueur_2, 1, 0)
+match_test = Match(joueur_1, joueur_2, 1, 0)
 
 
 # Création d'un objet Tournoi.
 # Cet objet représente un tournoi et contiendra les joueurs et les tours.
 tournoi = Tournoi("Tournoi de Paris", "Paris", "01/01/2024", "Tournoi test")
 
+tournoi.ajouter_joueur(joueur_1)
+tournoi.ajouter_joueur(joueur_2)
 
 # Affichage des objets créés.
 # Les méthodes spéciales __str__ définies dans les classes
 # permettent d'obtenir une représentation texte lisible.
-print(joueur_test)
+print(joueur_1)
 print(joueur_2)
 print(match_test)
 print(tournoi)
