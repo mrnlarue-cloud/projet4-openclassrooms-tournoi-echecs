@@ -43,22 +43,22 @@ class Tour:
         self.date_debut = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
     def terminer(self):
-        # Même chose que démarrer() mais pour la date de fin.
-        # On enregistre la date et l'heure de maintenant.
+        # Enregistre la date et l'heure de fin du tour.
         self.date_fin = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
     def ajouter_match(self, match):
-        # On ajoute un match à la fin de la liste des matchs.
-        # append() veut dire "ajouter à la fin de la liste".
+        # Ajoute un objet Match dans la liste des matchs du tour.
         self.matchs.append(match)
 
     def __str__(self):
-        # Cette méthode définit ce qui s'affiche quand on fait print(tour).
-        # len(self.matchs) compte le nombre de matchs dans la liste.
-        # Exemple d'affichage :
-        # "Tour 1 - début : 15/06/2025 14:30:05 - fin : 15/06/2025 15:00:00 - nombre de matchs : 4"
+        # Méthode spéciale utilisée lorsque l'on fait print(tour).
+        # Elle définit la représentation texte de l'objet Tour.
+
         return (
+            # f-string : permet d'insérer des variables dans une chaîne de texte.
             f"{self.nom} - début : {self.date_debut} - "
             f"fin : {self.date_fin} - "
+
+            # len() compte le nombre de matchs dans la liste.
             f"nombre de matchs : {len(self.matchs)}"
         )
