@@ -7,6 +7,7 @@ class Tournoi:
         self.nom = nom
         self.lieu = lieu
         self.date_debut = date_debut
+        # On ne peut pas déjà savoir.
         self.date_fin = None
         self.description = description
 
