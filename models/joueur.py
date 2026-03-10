@@ -1,32 +1,32 @@
 # Définition de la classe Joueur.
-# Cette classe sert à représenter un joueur du tournoi.
+# Représente un joueur participant au tournoi.
 class Joueur:
 
-    # La méthode __init__ est appelée automatiquement
-    # quand on crée un nouvel objet à partir de la classe Joueur.
-    # Elle sert à donner des valeurs de départ à chaque attribut du joueur.
+    # Méthode appelée lors de la création d'un objet Joueur.
+    # Elle initialise les attributs de l'objet avec les données du joueur.
     def __init__(self, prenom, nom, date_naissance, identifiant_national, classement):
-        # On stocke le prénom du joueur dans l'objet.
+
+        # Attribut contenant le prénom du joueur.
         self.prenom = prenom
 
-        # On stocke le nom du joueur dans l'objet.
+        # Attribut contenant le nom du joueur.
         self.nom = nom
 
-        # On stocke la date de naissance du joueur.
+        # Attribut contenant la date de naissance du joueur.
         self.date_naissance = date_naissance
 
-        # On stocke l'identifiant national du joueur.
+        # Identifiant unique du joueur dans le système.
         self.identifiant_national = identifiant_national
 
-        # On stocke le classement du joueur.
+        # Classement du joueur utilisé pour les tournois.
         self.classement = classement
 
-    # Cette méthode permet de transformer l'objet Joueur
-    # en dictionnaire Python.
-    # C'est utile pour préparer une future sauvegarde en JSON,
-    # car le JSON ne sait pas enregistrer directement un objet personnalisé.
     def to_dict(self):
+        # Convertit l'objet Joueur en dictionnaire Python.
+        # Cette structure est compatible avec la sérialisation en JSON.
+
         return {
+            # Chaque clé correspond à un attribut de l'objet.
             "prenom": self.prenom,
             "nom": self.nom,
             "date_naissance": self.date_naissance,
@@ -34,14 +34,18 @@ class Joueur:
             "classement": self.classement,
         }
 
-    # Le décorateur @classmethod indique que cette méthode
-    # travaille avec la classe elle-même.
-    # Ici, on l'utilise pour recréer un objet Joueur
-    # à partir d'un dictionnaire.
-    # "cls" représente la classe Joueur.
     @classmethod
     def from_dict(cls, data):
+        # @classmethod est un décorateur indiquant que la méthode
+        # est liée à la classe et non à une instance existante.
+        #
+        # "cls" représente la classe Joueur.
+        # Cela permet de créer un nouvel objet Joueur à partir d'un dictionnaire,
+        # par exemple après lecture de données JSON.
+
         return cls(
+            # On récupère les valeurs dans le dictionnaire
+            # et on les passe au constructeur de la classe.
             data["prenom"],
             data["nom"],
             data["date_naissance"],
@@ -49,8 +53,8 @@ class Joueur:
             data["classement"],
         )
 
-    # La méthode __str__ permet de définir
-    # ce qui s'affiche quand on utilise print() sur un objet Joueur.
-    # Sans cette méthode, Python afficherait quelque chose de peu lisible.
     def __str__(self):
+        # Définit la représentation texte de l'objet Joueur.
+        # Utilisée lorsque l'objet est affiché.
+
         return f"{self.prenom} {self.nom} - classement : {self.classement}"

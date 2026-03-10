@@ -38,7 +38,6 @@ class Tournoi:
             # f-string : permet d'insérer des variables dans une chaîne de texte.
             f"Tournoi : {self.nom} | "
             f"Lieu : {self.lieu} | "
-
             # len() permet de compter le nombre d'éléments dans une liste.
             f"Joueurs inscrits : {len(self.joueurs)} | "
             f"Tours joués : {len(self.tours)}"

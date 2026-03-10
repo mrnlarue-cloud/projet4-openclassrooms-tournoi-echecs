@@ -58,7 +58,6 @@ class Tour:
             # f-string : permet d'insérer des variables dans une chaîne de texte.
             f"{self.nom} - début : {self.date_debut} - "
             f"fin : {self.date_fin} - "
-
             # len() compte le nombre de matchs dans la liste.
             f"nombre de matchs : {len(self.matchs)}"
         )
