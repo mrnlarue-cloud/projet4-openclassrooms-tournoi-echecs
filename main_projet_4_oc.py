@@ -1,3 +1,7 @@
+# Import du module json.
+# Il permet d'afficher les données au format JSON de manière lisible.
+import json
+
 # Import des classes du projet.
 # Ces imports permettent d'utiliser les modèles définis dans le dossier models.
 
@@ -9,15 +13,16 @@ from models.joueur import Joueur
 # Cette classe représente un match entre deux joueurs.
 from models.match import Match
 
+# Import de la classe Tour.
+# Cette classe représente un tour contenant plusieurs matchs.
+from models.tour import Tour
+
 # Import de la classe Tournoi.
 # Cette classe représente l'objet principal qui regroupe joueurs et tours.
 from models.tournoi import Tournoi
 
-from models.tour import Tour
-
 # Création d'objets Joueur.
 # Chaque objet représente un joueur avec ses informations.
-
 joueur_1 = Joueur(
     "Alice",
     "Martin",
@@ -34,22 +39,25 @@ joueur_2 = Joueur(
     1150,
 )
 
-
 # Création d'un objet Match.
 # Le match relie deux objets Joueur et enregistre leur score.
 match_test = Match(joueur_1, joueur_2, 1, 0)
 
+# Création d'un objet Tour.
+# Ce tour contiendra le match créé juste avant.
+tour_1 = Tour("Tour 1")
+tour_1.ajouter_match(match_test)
 
 # Création d'un objet Tournoi.
 # Cet objet représente un tournoi et contiendra les joueurs et les tours.
 tournoi = Tournoi("Tournoi de Paris", "Paris", "01/01/2024", "Tournoi test")
 
-tour1 = Tour("Tour 1")
-tour1.ajouter_match(match_test)
-tournoi.ajouter_tour(tour1)
-
+# Ajout des joueurs au tournoi.
 tournoi.ajouter_joueur(joueur_1)
 tournoi.ajouter_joueur(joueur_2)
+
+# Ajout du tour au tournoi.
+tournoi.ajouter_tour(tour_1)
 
 # Affichage des objets créés.
 # Les méthodes spéciales __str__ définies dans les classes
@@ -58,3 +66,37 @@ print(joueur_1)
 print(joueur_2)
 print(match_test)
 print(tournoi)
+
+# Test de sérialisation du tournoi complet.
+# L'objectif est de vérifier que l'objet Tournoi
+# peut être transformé en dictionnaire,
+# puis reconstruit correctement à partir de ce dictionnaire.
+
+# Conversion de l'objet tournoi en dictionnaire.
+tournoi_dict = tournoi.to_dict()
+
+# Affichage du dictionnaire obtenu au format JSON lisible.
+# json.dumps() transforme le dictionnaire en texte JSON.
+# indent=4 ajoute des retours à la ligne et une indentation.
+# ensure_ascii=False permet de conserver les accents lisibles.
+print("\nTournoi converti en dictionnaire :")
+print(json.dumps(tournoi_dict, indent=4, ensure_ascii=False))
+
+# Reconstruction d'un nouvel objet Tournoi
+# à partir du dictionnaire obtenu.
+tournoi_reconstruit = Tournoi.from_dict(tournoi_dict)
+
+# Affichage du tournoi reconstruit.
+# Cela permet de vérifier que l'objet recréé reste cohérent.
+print("\nTournoi reconstruit :")
+print(tournoi_reconstruit)
+
+# Vérification plus précise de quelques éléments importants.
+# On contrôle ici que les listes internes ont bien été restaurées.
+print("\nVérifications après reconstruction :")
+print(f"Nombre de joueurs : {len(tournoi_reconstruit.joueurs)}")
+print(f"Nombre de tours : {len(tournoi_reconstruit.tours)}")
+print(
+    f"Nombre de matchs dans le premier tour : "
+    f"{len(tournoi_reconstruit.tours[0].matchs)}"
+)
