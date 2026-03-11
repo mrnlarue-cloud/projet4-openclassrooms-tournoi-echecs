@@ -103,9 +103,16 @@ print("\nTournoi enregistré dans le fichier JSON.")
 print("\nTournoi converti en dictionnaire :")
 print(json.dumps(tournoi_dict, indent=4, ensure_ascii=False))
 
-# Reconstruction d'un nouvel objet Tournoi
-# à partir du dictionnaire obtenu.
-tournoi_reconstruit = Tournoi.from_dict(tournoi_dict)
+# Ouverture du fichier JSON en mode lecture.
+# "r" signifie lecture.
+with open(chemin_fichier, "r", encoding="utf-8") as fichier:
+    # json.load() lit le contenu du fichier JSON
+    # et le transforme en données Python.
+    donnees = json.load(fichier)
+
+# Le fichier contient une liste de tournois.
+# Ici, on récupère le premier tournoi de la liste.
+tournoi_reconstruit = Tournoi.from_dict(donnees[0])
 
 # Affichage du tournoi reconstruit.
 # Cela permet de vérifier que l'objet recréé reste cohérent.
