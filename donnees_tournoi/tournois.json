@@ -1,1 +1,53 @@
-[]
+[
+    {
+        "nom": "Tournoi de Paris",
+        "lieu": "Paris",
+        "date_debut": "01/01/2024",
+        "date_fin": null,
+        "description": "Tournoi test",
+        "nombre_tours": 4,
+        "joueurs": [
+            {
+                "prenom": "Alice",
+                "nom": "Martin",
+                "date_naissance": "01/01/1990",
+                "identifiant_national": "AB12345",
+                "classement": 1200
+            },
+            {
+                "prenom": "Bob",
+                "nom": "Durand",
+                "date_naissance": "02/02/1992",
+                "identifiant_national": "CD67890",
+                "classement": 1150
+            }
+        ],
+        "tours": [
+            {
+                "nom": "Tour 1",
+                "date_debut": null,
+                "date_fin": null,
+                "matchs": [
+                    {
+                        "joueur_1": {
+                            "prenom": "Alice",
+                            "nom": "Martin",
+                            "date_naissance": "01/01/1990",
+                            "identifiant_national": "AB12345",
+                            "classement": 1200
+                        },
+                        "joueur_2": {
+                            "prenom": "Bob",
+                            "nom": "Durand",
+                            "date_naissance": "02/02/1992",
+                            "identifiant_national": "CD67890",
+                            "classement": 1150
+                        },
+                        "score_joueur_1": 1,
+                        "score_joueur_2": 0
+                    }
+                ]
+            }
+        ]
+    }
+]

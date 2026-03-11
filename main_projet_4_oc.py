@@ -2,6 +2,9 @@
 # Il permet d'afficher les données au format JSON de manière lisible.
 import json
 
+# Construit un chemin fiable vers le fichier JSON à partir du dossier du script.
+from pathlib import Path
+
 # Import des classes du projet.
 # Ces imports permettent d'utiliser les modèles définis dans le dossier models.
 
@@ -74,6 +77,24 @@ print(tournoi)
 
 # Conversion de l'objet tournoi en dictionnaire.
 tournoi_dict = tournoi.to_dict()
+
+# __file__ représente le fichier Python actuel.
+# resolve() récupère son chemin complet.
+# parent désigne le dossier dans lequel se trouve ce fichier.
+dossier_projet = Path(__file__).resolve().parent
+
+# On construit ensuite le chemin complet vers le fichier JSON.
+chemin_fichier = dossier_projet / "donnees_tournoi" / "tournois.json"
+
+# Ouverture du fichier en mode écriture.
+# "w" remplace le contenu existant du fichier.
+# encoding="utf-8" permet de bien gérer les accents.
+with open(chemin_fichier, "w", encoding="utf-8") as fichier:
+    # On enregistre une liste contenant le tournoi converti en dictionnaire.
+    # On utilise une liste car le fichier est prévu pour stocker plusieurs tournois.
+    json.dump([tournoi_dict], fichier, indent=4, ensure_ascii=False)
+
+print("\nTournoi enregistré dans le fichier JSON.")
 
 # Affichage du dictionnaire obtenu au format JSON lisible.
 # json.dumps() transforme le dictionnaire en texte JSON.
