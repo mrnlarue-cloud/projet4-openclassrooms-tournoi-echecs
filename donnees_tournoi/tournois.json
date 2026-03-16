@@ -49,5 +49,15 @@
                 ]
             }
         ]
+    },
+    {
+        "nom": "Tournoi de Tokyo",
+        "lieu": "Tokyo",
+        "date_debut": "16/03/2026",
+        "date_fin": null,
+        "description": "Tournoi national",
+        "nombre_tours": 4,
+        "joueurs": [],
+        "tours": []
     }
 ]
