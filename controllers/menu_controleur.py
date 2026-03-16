@@ -1,9 +1,11 @@
 import json
 from pathlib import Path
-from views.menu_view import afficher_menu_principal, demander_choix
+
 from models.tournoi import Tournoi
+from views.menu_view import afficher_menu_principal, demander_choix
 from views.tournoi_view import (
     afficher_choix_tournoi_invalide,
+    afficher_details_tournoi_charge,
     afficher_message_tournoi_enregistre,
     afficher_tournoi_charge,
     afficher_tournois_enregistres,
@@ -77,30 +79,6 @@ def creer_nouveau_tournoi():
     afficher_message_tournoi_enregistre(tournoi.nom)
 
 
-# Cette fonction pilote le menu principal.
-# Elle lit le choix saisi par l'utilisateur
-# puis lance l'action correspondante.
-def lancer_menu_principal():
-    afficher_menu_principal()
-    choix_utilisateur = demander_choix()
-
-    if choix_utilisateur == "1":
-        creer_nouveau_tournoi()
-
-    elif choix_utilisateur == "2":
-        charger_tournoi_existant()
-
-    elif choix_utilisateur == "3":
-        noms_tournois = recuperer_noms_tournois()
-        afficher_tournois_enregistres(noms_tournois)
-
-    elif choix_utilisateur == "4":
-        print("Fermeture du programme.")
-
-    else:
-        print("Choix invalide.")
-
-
 # Cette fonction charge un tournoi existant à partir du fichier JSON.
 # Elle affiche d'abord les tournois disponibles,
 # demande à l'utilisateur lequel il veut charger,
@@ -141,6 +119,44 @@ def charger_tournoi_existant():
     # à partir des données du fichier JSON.
     tournoi_charge = Tournoi.from_dict(donnees_tournoi)
 
-    # Pour cette étape, on confirme simplement
-    # que le tournoi a bien été chargé.
+    # On confirme d'abord que le tournoi a bien été chargé.
     afficher_tournoi_charge(tournoi_charge.nom)
+
+    # On affiche ensuite ses informations principales
+    # pour rendre le chargement plus concret pour l'utilisateur.
+    afficher_details_tournoi_charge(tournoi_charge)
+
+
+# Cette fonction pilote le menu principal de l'application.
+# Le menu reste affiché tant que l'utilisateur
+# ne choisit pas explicitement de quitter.
+# Selon le choix saisi, le contrôleur lance l'action adaptée.
+def lancer_menu_principal():
+    programme_en_cours = True
+
+    while programme_en_cours:
+        afficher_menu_principal()
+        choix_utilisateur = demander_choix()
+
+        # Choix 1 : création d'un nouveau tournoi.
+        if choix_utilisateur == "1":
+            creer_nouveau_tournoi()
+
+        # Choix 2 : chargement d'un tournoi existant.
+        elif choix_utilisateur == "2":
+            charger_tournoi_existant()
+
+        # Choix 3 : affichage de la liste des tournois enregistrés.
+        elif choix_utilisateur == "3":
+            noms_tournois = recuperer_noms_tournois()
+            afficher_tournois_enregistres(noms_tournois)
+
+        # Choix 4 : arrêt du programme.
+        elif choix_utilisateur == "4":
+            print("Fermeture du programme.")
+            programme_en_cours = False
+
+        # Si la saisie ne correspond à aucun choix prévu,
+        # on affiche un message d'erreur simple.
+        else:
+            print("Choix invalide.")

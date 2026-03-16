@@ -65,3 +65,17 @@ def afficher_tournoi_charge(nom_tournoi):
 # ne correspond à aucun tournoi enregistré.
 def afficher_choix_tournoi_invalide():
     print("\nNuméro de tournoi invalide.")
+
+
+# Cette fonction affiche les informations principales
+# du tournoi qui vient d'être chargé.
+# Elle reçoit directement l'objet Tournoi
+# déjà reconstruit par le contrôleur.
+def afficher_details_tournoi_charge(tournoi):
+    print("\n=== Détails du tournoi chargé ===")
+    print(f"Nom : {tournoi.nom}")
+    print(f"Lieu : {tournoi.lieu}")
+    print(f"Date : {tournoi.date_debut}")
+    print(f"Description : {tournoi.description}")
+    print(f"Nombre de joueurs : {len(tournoi.joueurs)}")
+    print(f"Nombre de tours : {len(tournoi.tours)}")
