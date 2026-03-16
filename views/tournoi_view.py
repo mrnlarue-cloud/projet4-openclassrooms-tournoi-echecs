@@ -46,3 +46,22 @@ def demander_informations_tournoi():
 # après l'enregistrement d'un tournoi.
 def afficher_message_tournoi_enregistre(nom_tournoi):
     print(f'\nLe tournoi "{nom_tournoi}" a bien été enregistré.')
+
+
+# Cette fonction demande à l'utilisateur quel tournoi il veut charger.
+# Elle récupère simplement le numéro saisi dans la console.
+# La vérification du choix sera faite dans le contrôleur.
+def demander_numero_tournoi():
+    return input("\nNuméro du tournoi à charger : ").strip()
+
+
+# Cette fonction affiche un message de confirmation
+# quand un tournoi a bien été chargé.
+def afficher_tournoi_charge(nom_tournoi):
+    print(f'\nTournoi chargé : "{nom_tournoi}"')
+
+
+# Cette fonction affiche un message si le numéro saisi
+# ne correspond à aucun tournoi enregistré.
+def afficher_choix_tournoi_invalide():
+    print("\nNuméro de tournoi invalide.")

@@ -1,12 +1,14 @@
 import json
 from pathlib import Path
-
-from models.tournoi import Tournoi
 from views.menu_view import afficher_menu_principal, demander_choix
+from models.tournoi import Tournoi
 from views.tournoi_view import (
+    afficher_choix_tournoi_invalide,
     afficher_message_tournoi_enregistre,
+    afficher_tournoi_charge,
     afficher_tournois_enregistres,
     demander_informations_tournoi,
+    demander_numero_tournoi,
 )
 
 
@@ -86,7 +88,7 @@ def lancer_menu_principal():
         creer_nouveau_tournoi()
 
     elif choix_utilisateur == "2":
-        print("Chargement de tournoi : fonctionnalité non encore disponible.")
+        charger_tournoi_existant()
 
     elif choix_utilisateur == "3":
         noms_tournois = recuperer_noms_tournois()
@@ -97,3 +99,48 @@ def lancer_menu_principal():
 
     else:
         print("Choix invalide.")
+
+
+# Cette fonction charge un tournoi existant à partir du fichier JSON.
+# Elle affiche d'abord les tournois disponibles,
+# demande à l'utilisateur lequel il veut charger,
+# puis reconstruit l'objet Tournoi correspondant.
+def charger_tournoi_existant():
+    tournois_enregistres = lire_tournois_enregistres()
+    noms_tournois = recuperer_noms_tournois()
+
+    # On affiche d'abord la liste des tournois disponibles
+    # pour que l'utilisateur puisse choisir un numéro.
+    afficher_tournois_enregistres(noms_tournois)
+
+    # Si aucun tournoi n'est enregistré,
+    # on arrête ici la fonction.
+    if not tournois_enregistres:
+        return
+
+    numero_saisi = demander_numero_tournoi()
+
+    # On vérifie d'abord que l'utilisateur a bien saisi un nombre.
+    if not numero_saisi.isdigit():
+        afficher_choix_tournoi_invalide()
+        return
+
+    numero_tournoi = int(numero_saisi)
+
+    # On vérifie ensuite que le numéro correspond bien
+    # à un tournoi présent dans la liste.
+    if numero_tournoi < 1 or numero_tournoi > len(tournois_enregistres):
+        afficher_choix_tournoi_invalide()
+        return
+
+    # Les listes Python commencent à l'indice 0,
+    # donc on retire 1 au numéro choisi par l'utilisateur.
+    donnees_tournoi = tournois_enregistres[numero_tournoi - 1]
+
+    # On reconstruit ici un vrai objet Tournoi
+    # à partir des données du fichier JSON.
+    tournoi_charge = Tournoi.from_dict(donnees_tournoi)
+
+    # Pour cette étape, on confirme simplement
+    # que le tournoi a bien été chargé.
+    afficher_tournoi_charge(tournoi_charge.nom)
