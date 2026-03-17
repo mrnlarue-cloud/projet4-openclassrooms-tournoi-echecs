@@ -164,9 +164,39 @@ def charger_tournoi_existant():
 
     # Choix 2 : ajout d'un joueur au tournoi chargé.
     elif choix_tournoi == "2":
+        # On vérifie d'abord si le tournoi contient déjà
+        # le nombre maximum de joueurs attendu.
+        if len(tournoi_charge.joueurs) >= 8:
+            print("Ce tournoi contient déjà 8 joueurs.")
+            return
+
         # On demande d'abord les informations du joueur
         # à l'utilisateur dans la console.
         informations_joueur = demander_informations_joueur()
+
+        # On crée ensuite un objet Joueur
+        # à partir des données saisies.
+        # L'ordre des arguments doit respecter
+        # le constructeur de la classe Joueur.
+        joueur = Joueur(
+            informations_joueur["prenom"],
+            informations_joueur["nom"],
+            informations_joueur["date_naissance"],
+            informations_joueur["identifiant_national"],
+            int(informations_joueur["classement"]),
+        )
+
+        # On ajoute le joueur
+        # à la liste des joueurs du tournoi chargé.
+        tournoi_charge.joueurs.append(joueur)
+
+        # On met immédiatement à jour
+        # le tournoi existant dans le fichier JSON.
+        mettre_a_jour_tournoi_existant(numero_tournoi, tournoi_charge)
+
+        # Ce message confirme
+        # que le joueur a bien été ajouté.
+        print(f'Le joueur "{joueur.prenom} {joueur.nom}" a bien été ajouté.')
 
         # On crée ensuite un objet Joueur
         # à partir des données saisies.
