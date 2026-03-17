@@ -83,6 +83,25 @@ def creer_nouveau_tournoi():
     afficher_message_tournoi_enregistre(tournoi.nom)
 
 
+# Cette fonction met à jour un tournoi déjà enregistré
+# dans le fichier JSON.
+# Elle remplace les anciennes données du tournoi
+# par les nouvelles données du tournoi modifié.
+def mettre_a_jour_tournoi_existant(numero_tournoi, tournoi):
+    tournois_enregistres = lire_tournois_enregistres()
+
+    # On remplace dans la liste
+    # le tournoi concerné par sa version mise à jour.
+    tournois_enregistres[numero_tournoi - 1] = tournoi.to_dict()
+
+    chemin_fichier = recuperer_chemin_fichier_tournois()
+
+    # On réécrit ensuite tout le fichier JSON
+    # avec la liste mise à jour.
+    with open(chemin_fichier, "w", encoding="utf-8") as fichier:
+        json.dump(tournois_enregistres, fichier, indent=4, ensure_ascii=False)
+
+
 # Cette fonction charge un tournoi existant à partir du fichier JSON.
 # Elle affiche d'abord les tournois disponibles,
 # demande à l'utilisateur lequel il veut charger,
@@ -160,12 +179,16 @@ def charger_tournoi_existant():
             int(informations_joueur["classement"]),
         )
 
-        # On ajoute enfin ce joueur
+        # On ajoute le joueur
         # à la liste des joueurs du tournoi chargé.
         tournoi_charge.joueurs.append(joueur)
 
-        # Ce message confirme simplement
-        # que le joueur a bien été ajouté en mémoire.
+        # On met immédiatement à jour
+        # le tournoi existant dans le fichier JSON.
+        mettre_a_jour_tournoi_existant(numero_tournoi, tournoi_charge)
+
+        # Ce message confirme
+        # que le joueur a bien été ajouté.
         print(f'Le joueur "{joueur.prenom} {joueur.nom}" a bien été ajouté.')
 
     # Choix 3 : fonctionnalité prévue plus tard.

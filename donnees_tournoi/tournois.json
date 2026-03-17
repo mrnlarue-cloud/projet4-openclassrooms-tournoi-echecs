@@ -57,7 +57,15 @@
         "date_fin": null,
         "description": "Tournoi national",
         "nombre_tours": 4,
-        "joueurs": [],
+        "joueurs": [
+            {
+                "prenom": "Mélissa",
+                "nom": "Doe",
+                "date_naissance": "13/04/1985",
+                "identifiant_national": "AB1234",
+                "classement": 2
+            }
+        ],
         "tours": []
     }
 ]
