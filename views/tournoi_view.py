@@ -119,3 +119,29 @@ def demander_informations_joueur():
         "date_naissance": date_naissance,
         "identifiant_national": identifiant_national,
     }
+
+
+# Cette fonction demande à l'utilisateur
+# les informations nécessaires pour créer un joueur.
+# Elle renvoie les données saisies
+# dans un dictionnaire simple.
+def demander_informations_joueur():
+    print("\n=== Ajout d'un joueur ===")
+
+    # On récupère les informations de base
+    # du joueur depuis la console.
+    nom = input("Nom : ").strip()
+    prenom = input("Prénom : ").strip()
+    date_naissance = input("Date de naissance : ").strip()
+    identifiant_national = input("Identifiant national : ").strip()
+    classement = input("Classement : ").strip()
+
+    # On renvoie les données au contrôleur
+    # pour qu'il puisse créer l'objet Joueur.
+    return {
+        "nom": nom,
+        "prenom": prenom,
+        "date_naissance": date_naissance,
+        "identifiant_national": identifiant_national,
+        "classement": classement,
+    }

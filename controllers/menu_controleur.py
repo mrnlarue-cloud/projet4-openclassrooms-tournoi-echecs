@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 
+from models.joueur import Joueur
 from models.tournoi import Tournoi
 from views.menu_view import afficher_menu_principal, demander_choix
 from views.tournoi_view import (
@@ -13,6 +14,7 @@ from views.tournoi_view import (
     demander_choix_menu_tournoi,
     demander_informations_tournoi,
     demander_numero_tournoi,
+    demander_informations_joueur,
 )
 
 
@@ -140,9 +142,31 @@ def charger_tournoi_existant():
     if choix_tournoi == "1":
         afficher_details_tournoi_charge(tournoi_charge)
 
-    # Choix 2 : fonctionnalité prévue plus tard.
+    # Choix 2 : ajout d'un joueur au tournoi chargé.
     elif choix_tournoi == "2":
-        print("Ajout de joueur non encore disponible.")
+        # On demande d'abord les informations du joueur
+        # à l'utilisateur dans la console.
+        informations_joueur = demander_informations_joueur()
+
+        # On crée ensuite un objet Joueur
+        # à partir des données saisies.
+        # L'ordre des arguments doit respecter
+        # le constructeur de la classe Joueur.
+        joueur = Joueur(
+            informations_joueur["prenom"],
+            informations_joueur["nom"],
+            informations_joueur["date_naissance"],
+            informations_joueur["identifiant_national"],
+            int(informations_joueur["classement"]),
+        )
+
+        # On ajoute enfin ce joueur
+        # à la liste des joueurs du tournoi chargé.
+        tournoi_charge.joueurs.append(joueur)
+
+        # Ce message confirme simplement
+        # que le joueur a bien été ajouté en mémoire.
+        print(f'Le joueur "{joueur.prenom} {joueur.nom}" a bien été ajouté.')
 
     # Choix 3 : fonctionnalité prévue plus tard.
     elif choix_tournoi == "3":
