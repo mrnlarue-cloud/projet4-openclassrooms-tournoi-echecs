@@ -124,26 +124,38 @@ def charger_tournoi_existant():
     # On confirme d'abord que le tournoi a bien été chargé.
     afficher_tournoi_charge(tournoi_charge.nom)
 
-    # On affiche ensuite ses informations principales
-    # pour rendre le chargement plus concret pour l'utilisateur.
+    # On affiche les informations principales
+    # du tournoi chargé.
     afficher_details_tournoi_charge(tournoi_charge)
 
-    # On affiche maintenant le menu des actions
-    # disponibles pour le tournoi chargé.
+    # On affiche ensuite le menu des actions
+    # disponibles pour ce tournoi.
     afficher_menu_tournoi()
 
     # On récupère le choix de l'utilisateur
     # dans le menu du tournoi.
     choix_tournoi = demander_choix_menu_tournoi()
 
-    # Si l'utilisateur choisit 4,
-    # on quitte simplement ce menu secondaire
-    # pour revenir au menu principal.
-    if choix_tournoi == "4":
+    # Choix 1 : réafficher les détails du tournoi.
+    if choix_tournoi == "1":
+        afficher_details_tournoi_charge(tournoi_charge)
+
+    # Choix 2 : fonctionnalité prévue plus tard.
+    elif choix_tournoi == "2":
+        print("Ajout de joueur non encore disponible.")
+
+    # Choix 3 : fonctionnalité prévue plus tard.
+    elif choix_tournoi == "3":
+        print("Affichage des joueurs non encore disponible.")
+
+    # Choix 4 : retour simple au menu principal.
+    elif choix_tournoi == "4":
         return
 
-    # Pour l'instant, les autres choix ne sont pas encore développés.
-    print("Cette action n'est pas encore disponible.")
+    # Si la saisie ne correspond à aucun choix prévu,
+    # on affiche un message simple.
+    else:
+        print("Choix invalide.")
 
 
 # Cette fonction pilote le menu principal de l'application.
