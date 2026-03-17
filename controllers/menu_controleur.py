@@ -185,22 +185,19 @@ def charger_tournoi_existant():
     # à partir des données du fichier JSON.
     tournoi_charge = Tournoi.from_dict(donnees_tournoi)
 
-    # On confirme d'abord que le tournoi a bien été chargé.
+    # On affiche un message confirmant
+    # que le tournoi a bien été chargé.
     afficher_tournoi_charge(tournoi_charge.nom)
 
-    # On affiche les informations principales
-    # du tournoi chargé.
-    afficher_details_tournoi_charge(tournoi_charge)
-
-    # On affiche ensuite le menu des actions
-    # disponibles pour ce tournoi.
+    # On affiche le menu du tournoi chargé
+    # pour proposer les actions disponibles.
     afficher_menu_tournoi()
 
     # On récupère le choix de l'utilisateur
     # dans le menu du tournoi.
     choix_tournoi = demander_choix_menu_tournoi()
 
-    # Choix 1 : réafficher les détails du tournoi.
+    # Choix 1 : affichage des détails du tournoi chargé.
     if choix_tournoi == "1":
         afficher_details_tournoi_charge(tournoi_charge)
 
@@ -268,6 +265,18 @@ def charger_tournoi_existant():
     # Choix 4 : retour simple au menu principal.
     elif choix_tournoi == "4":
         return
+
+    # Choix 5 : démarrage du tournoi.
+    elif choix_tournoi == "5":
+        # On vérifie que le tournoi contient exactement
+        # 8 joueurs avant d'autoriser son démarrage.
+        if len(tournoi_charge.joueurs) != 8:
+            print("Le tournoi doit contenir exactement 8 joueurs pour démarrer.")
+            return
+
+        # Pour l'instant, on valide simplement
+        # que le tournoi est prêt à démarrer.
+        print("Le tournoi est prêt à démarrer.")
 
     # Si la saisie ne correspond à aucun choix prévu,
     # on affiche un message simple.

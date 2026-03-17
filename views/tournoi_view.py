@@ -89,6 +89,7 @@ def afficher_menu_tournoi():
     print("2. Ajouter un joueur")
     print("3. Afficher les joueurs")
     print("4. Retour au menu principal")
+    print("5. Démarrer le tournoi")
 
 
 # Cette fonction récupère le choix de l'utilisateur
