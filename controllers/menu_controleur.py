@@ -6,9 +6,11 @@ from views.menu_view import afficher_menu_principal, demander_choix
 from views.tournoi_view import (
     afficher_choix_tournoi_invalide,
     afficher_details_tournoi_charge,
+    afficher_menu_tournoi,
     afficher_message_tournoi_enregistre,
     afficher_tournoi_charge,
     afficher_tournois_enregistres,
+    demander_choix_menu_tournoi,
     demander_informations_tournoi,
     demander_numero_tournoi,
 )
@@ -125,6 +127,19 @@ def charger_tournoi_existant():
     # On affiche ensuite ses informations principales
     # pour rendre le chargement plus concret pour l'utilisateur.
     afficher_details_tournoi_charge(tournoi_charge)
+
+    # On affiche maintenant le menu des actions
+    # disponibles pour le tournoi chargé.
+    afficher_menu_tournoi()
+
+    # On récupère le choix de l'utilisateur
+    # dans le menu du tournoi.
+    choix_tournoi = demander_choix_menu_tournoi()
+
+    # Cet affichage est temporaire :
+    # il sert seulement à vérifier que le choix
+    # du menu du tournoi est bien récupéré.
+    print(f"Choix du menu tournoi : {choix_tournoi}")
 
 
 # Cette fonction pilote le menu principal de l'application.

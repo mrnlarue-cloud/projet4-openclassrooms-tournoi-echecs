@@ -79,3 +79,19 @@ def afficher_details_tournoi_charge(tournoi):
     print(f"Description : {tournoi.description}")
     print(f"Nombre de joueurs : {len(tournoi.joueurs)}")
     print(f"Nombre de tours : {len(tournoi.tours)}")
+
+
+# Cette fonction affiche le menu des actions
+# disponibles pour un tournoi déjà chargé.
+def afficher_menu_tournoi():
+    print("\n=== Menu du tournoi ===")
+    print("1. Afficher les détails du tournoi")
+    print("2. Ajouter un joueur")
+    print("3. Afficher les joueurs")
+    print("4. Retour au menu principal")
+
+
+# Cette fonction récupère le choix de l'utilisateur
+# dans le menu du tournoi.
+def demander_choix_menu_tournoi():
+    return input("Votre choix : ").strip()
