@@ -136,10 +136,14 @@ def charger_tournoi_existant():
     # dans le menu du tournoi.
     choix_tournoi = demander_choix_menu_tournoi()
 
-    # Cet affichage est temporaire :
-    # il sert seulement à vérifier que le choix
-    # du menu du tournoi est bien récupéré.
-    print(f"Choix du menu tournoi : {choix_tournoi}")
+    # Si l'utilisateur choisit 4,
+    # on quitte simplement ce menu secondaire
+    # pour revenir au menu principal.
+    if choix_tournoi == "4":
+        return
+
+    # Pour l'instant, les autres choix ne sont pas encore développés.
+    print("Cette action n'est pas encore disponible.")
 
 
 # Cette fonction pilote le menu principal de l'application.
