@@ -11,6 +11,7 @@ from views.tournoi_view import (
     afficher_message_tournoi_enregistre,
     afficher_tournoi_charge,
     afficher_tournois_enregistres,
+    afficher_joueurs_tournoi,
     demander_choix_menu_tournoi,
     demander_informations_tournoi,
     demander_numero_tournoi,
@@ -191,9 +192,11 @@ def charger_tournoi_existant():
         # que le joueur a bien été ajouté.
         print(f'Le joueur "{joueur.prenom} {joueur.nom}" a bien été ajouté.')
 
-    # Choix 3 : fonctionnalité prévue plus tard.
+    # Choix 3 : affichage des joueurs du tournoi chargé.
     elif choix_tournoi == "3":
-        print("Affichage des joueurs non encore disponible.")
+        # On affiche la liste des joueurs
+        # déjà enregistrés dans ce tournoi.
+        afficher_joueurs_tournoi(tournoi_charge.joueurs)
 
     # Choix 4 : retour simple au menu principal.
     elif choix_tournoi == "4":

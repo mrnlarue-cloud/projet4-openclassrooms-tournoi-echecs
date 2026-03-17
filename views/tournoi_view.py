@@ -145,3 +145,25 @@ def demander_informations_joueur():
         "identifiant_national": identifiant_national,
         "classement": classement,
     }
+
+
+# Cette fonction affiche la liste des joueurs
+# d'un tournoi chargé.
+# Elle reçoit directement la liste des joueurs
+# déjà présente dans l'objet tournoi.
+def afficher_joueurs_tournoi(joueurs):
+    print("\n=== Joueurs du tournoi ===")
+
+    # Si aucun joueur n'est encore ajouté,
+    # on affiche un message simple.
+    if not joueurs:
+        print("Aucun joueur n'est encore enregistré dans ce tournoi.")
+        return
+
+    # On affiche chaque joueur avec un numéro
+    # pour rendre la lecture plus claire.
+    for numero, joueur in enumerate(joueurs, start=1):
+        print(
+            f"{numero}. {joueur.prenom} {joueur.nom} - "
+            f"Classement : {joueur.classement}"
+        )
