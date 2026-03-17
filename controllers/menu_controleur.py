@@ -103,6 +103,48 @@ def mettre_a_jour_tournoi_existant(numero_tournoi, tournoi):
         json.dump(tournois_enregistres, fichier, indent=4, ensure_ascii=False)
 
 
+# Cette fonction vérifie si le joueur saisi
+# est déjà présent dans le tournoi.
+# Elle renvoie un message si un doublon est détecté.
+# Sinon, elle renvoie None.
+def verifier_doublon_joueur(joueurs, informations_joueur):
+    nom_saisi = informations_joueur["nom"].strip().lower()
+    prenom_saisi = informations_joueur["prenom"].strip().lower()
+    date_naissance_saisie = informations_joueur["date_naissance"].strip()
+    identifiant_saisi = informations_joueur["identifiant_national"].strip().upper()
+
+    for joueur in joueurs:
+        nom_existant = joueur.nom.strip().lower()
+        prenom_existant = joueur.prenom.strip().lower()
+        date_naissance_existante = joueur.date_naissance.strip()
+        identifiant_existant = joueur.identifiant_national.strip().upper()
+
+        meme_nom = nom_existant == nom_saisi
+        meme_prenom = prenom_existant == prenom_saisi
+        meme_date_naissance = date_naissance_existante == date_naissance_saisie
+        meme_identifiant = identifiant_existant == identifiant_saisi
+
+        # Même identifiant national :
+        # on considère qu'il s'agit du même joueur.
+        if meme_identifiant:
+            return (
+                "Un joueur avec cet identifiant national "
+                "existe déjà dans ce tournoi."
+            )
+
+        # Même nom et même prénom :
+        # on accepte l'homonyme seulement si
+        # la date de naissance et l'identifiant national sont différents.
+        if meme_nom and meme_prenom and meme_date_naissance:
+            return (
+                "Un joueur avec le même nom, le même prénom "
+                "et la même date de naissance existe déjà "
+                "dans ce tournoi."
+            )
+
+    return None
+
+
 # Cette fonction charge un tournoi existant à partir du fichier JSON.
 # Elle affiche d'abord les tournois disponibles,
 # demande à l'utilisateur lequel il veut charger,
@@ -170,44 +212,39 @@ def charger_tournoi_existant():
             print("Ce tournoi contient déjà 8 joueurs.")
             return
 
-        # On demande d'abord les informations du joueur
+        # On demande ensuite les informations du joueur
         # à l'utilisateur dans la console.
         informations_joueur = demander_informations_joueur()
 
-        # On crée ensuite un objet Joueur
-        # à partir des données saisies.
-        # L'ordre des arguments doit respecter
-        # le constructeur de la classe Joueur.
-        joueur = Joueur(
-            informations_joueur["prenom"],
-            informations_joueur["nom"],
-            informations_joueur["date_naissance"],
-            informations_joueur["identifiant_national"],
-            int(informations_joueur["classement"]),
+        # On vérifie que le classement saisi
+        # est bien un nombre entier.
+        try:
+            classement = int(informations_joueur["classement"])
+        except ValueError:
+            print("Le classement doit être un nombre entier.")
+            return
+
+        # On vérifie ensuite que le joueur
+        # n'est pas déjà présent dans le tournoi.
+        message_doublon = verifier_doublon_joueur(
+            tournoi_charge.joueurs,
+            informations_joueur,
         )
 
-        # On ajoute le joueur
-        # à la liste des joueurs du tournoi chargé.
-        tournoi_charge.joueurs.append(joueur)
-
-        # On met immédiatement à jour
-        # le tournoi existant dans le fichier JSON.
-        mettre_a_jour_tournoi_existant(numero_tournoi, tournoi_charge)
-
-        # Ce message confirme
-        # que le joueur a bien été ajouté.
-        print(f'Le joueur "{joueur.prenom} {joueur.nom}" a bien été ajouté.')
+        # Si un doublon est détecté,
+        # on affiche le message puis on arrête ici.
+        if message_doublon:
+            print(message_doublon)
+            return
 
         # On crée ensuite un objet Joueur
         # à partir des données saisies.
-        # L'ordre des arguments doit respecter
-        # le constructeur de la classe Joueur.
         joueur = Joueur(
             informations_joueur["prenom"],
             informations_joueur["nom"],
             informations_joueur["date_naissance"],
             informations_joueur["identifiant_national"],
-            int(informations_joueur["classement"]),
+            classement,
         )
 
         # On ajoute le joueur
