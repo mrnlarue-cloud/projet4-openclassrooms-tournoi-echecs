@@ -1,19 +1,12 @@
-# views/menu_view.py
-
-
-# Cette fonction affiche le menu principal dans la console.
-# Son rôle est uniquement de montrer les actions possibles
-# à l'utilisateur au démarrage du programme.
-def afficher_menu_principal():
-    print("\n=== Gestionnaire de tournoi d'échecs ===")
-    print("1. Créer un nouveau tournoi")
-    print("2. Charger un tournoi existant")
-    print("3. Afficher les tournois enregistrés")
-    print("4. Quitter")
-
-
-# Cette fonction récupère le choix de l'utilisateur.
-# Elle ne vérifie pas encore si la valeur est correcte.
-# Elle sert seulement à lire la saisie proprement.
-def demander_choix():
-    return input("Votre choix : ").strip()
+# Cette fonction affiche le menu des actions
+# disponibles pour un tournoi déjà chargé.
+# Elle ne fait qu'afficher les choix :
+# c'est le contrôleur qui décide quoi faire ensuite.
+def afficher_menu_tournoi():
+    print("\n=== Menu du tournoi ===")
+    print("1. Afficher les détails du tournoi")
+    print("2. Ajouter un joueur")
+    print("3. Afficher les joueurs")
+    print("4. Retour au menu principal")
+    print("5. Démarrer le tournoi")
+    print("6. Saisir les scores du tour")
