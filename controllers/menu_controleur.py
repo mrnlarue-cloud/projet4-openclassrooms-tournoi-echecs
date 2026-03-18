@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from models.match import Match
+from models.tour import Tour
 from models.joueur import Joueur
 from models.tournoi import Tournoi
 from views.menu_view import afficher_menu_principal, demander_choix
@@ -145,6 +147,77 @@ def verifier_doublon_joueur(joueurs, informations_joueur):
     return None
 
 
+def verifier_demarrage_tournoi(tournoi):
+    # Le tournoi doit contenir exactement 8 joueurs.
+    if len(tournoi.joueurs) != 8:
+        return False, "Le tournoi doit contenir exactement 8 joueurs pour démarrer."
+
+    # Si un tour existe déjà, le tournoi a déjà démarré.
+    if len(tournoi.tours) > 0:
+        return False, "Le tournoi a déjà été démarré."
+
+    return True, ""
+
+
+def trier_joueurs_par_classement(joueurs):
+    # On trie du meilleur classement au moins bon.
+    return sorted(joueurs, key=lambda joueur: joueur.classement, reverse=True)
+
+
+def creer_matchs_premier_tour(joueurs_tries):
+    # On crée 4 matchs à partir des joueurs triés.
+    matchs = []
+
+    for index in range(0, len(joueurs_tries), 2):
+        joueur_1 = joueurs_tries[index]
+        joueur_2 = joueurs_tries[index + 1]
+
+        match = Match(joueur_1, joueur_2)
+        matchs.append(match)
+
+    return matchs
+
+
+def demarrer_tournoi(numero_tournoi, tournoi):
+    # On vérifie si le tournoi peut démarrer.
+    demarrage_autorise, message = verifier_demarrage_tournoi(tournoi)
+
+    if not demarrage_autorise:
+        print(message)
+        return
+
+    # On trie les joueurs par classement.
+    joueurs_tries = trier_joueurs_par_classement(tournoi.joueurs)
+
+    # On crée le premier tour.
+    tour_1 = Tour("Tour 1")
+    tour_1.demarrer()
+
+    # On génère les matchs du premier tour.
+    matchs = creer_matchs_premier_tour(joueurs_tries)
+
+    for match in matchs:
+        tour_1.ajouter_match(match)
+
+    # On ajoute le tour au tournoi.
+    tournoi.ajouter_tour(tour_1)
+
+    # On sauvegarde immédiatement.
+    mettre_a_jour_tournoi_existant(numero_tournoi, tournoi)
+
+    # On affiche les appariements.
+    print("\nLe tournoi a bien démarré.")
+    print(f"{tour_1.nom} créé avec {len(tour_1.matchs)} matchs :")
+
+    for numero_match, match in enumerate(tour_1.matchs, start=1):
+        print(
+            f"{numero_match}. "
+            f"{match.joueur_1.prenom} {match.joueur_1.nom} "
+            f"vs "
+            f"{match.joueur_2.prenom} {match.joueur_2.nom}"
+        )
+
+
 # Cette fonction charge un tournoi existant à partir du fichier JSON.
 # Elle affiche d'abord les tournois disponibles,
 # demande à l'utilisateur lequel il veut charger,
@@ -268,15 +341,7 @@ def charger_tournoi_existant():
 
     # Choix 5 : démarrage du tournoi.
     elif choix_tournoi == "5":
-        # On vérifie que le tournoi contient exactement
-        # 8 joueurs avant d'autoriser son démarrage.
-        if len(tournoi_charge.joueurs) != 8:
-            print("Le tournoi doit contenir exactement 8 joueurs pour démarrer.")
-            return
-
-        # Pour l'instant, on valide simplement
-        # que le tournoi est prêt à démarrer.
-        print("Le tournoi est prêt à démarrer.")
+        demarrer_tournoi(numero_tournoi, tournoi_charge)
 
     # Si la saisie ne correspond à aucun choix prévu,
     # on affiche un message simple.
