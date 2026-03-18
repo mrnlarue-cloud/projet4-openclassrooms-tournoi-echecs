@@ -93,6 +93,7 @@ def afficher_menu_tournoi():
     print("5. Démarrer le tournoi")
     print("6. Saisir les scores du tour")
     print("7. Clôturer le tour")
+    print("8. Créer le tour suivant")
 
 
 # Cette fonction récupère le choix de l'utilisateur

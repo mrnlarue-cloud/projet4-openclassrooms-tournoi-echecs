@@ -391,9 +391,14 @@ def gerer_menu_tournoi_charge(numero_tournoi, tournoi_charge):
         elif choix_tournoi == "6":
             saisir_scores_tour(tournoi_charge, numero_tournoi)
 
+        # Choix 7 : clôture du tour en cours
         elif choix_tournoi == "7":
             # On lance la clôture du tour en cours.
             cloturer_tour(tournoi_charge, numero_tournoi)
+
+        # Choix 8 : Création du tour suivant
+        elif choix_tournoi == "8":
+            creer_tour_suivant(tournoi_charge, numero_tournoi)
 
         else:
             print("Choix invalide.")
@@ -458,3 +463,53 @@ def lancer_menu_principal():
 
         else:
             print("Choix invalide.")
+
+
+def creer_tour_suivant(tournoi, numero_tournoi):
+    # On vérifie qu'il y a au moins un tour
+    if not tournoi.tours:
+        print("Aucun tour précédent. Impossible de créer un nouveau tour.")
+        return
+
+    dernier_tour = tournoi.tours[-1]
+
+    # On vérifie que le dernier tour est bien clôturé
+    if dernier_tour.date_fin is None:
+        print("Le tour en cours doit être clôturé avant de créer le suivant.")
+        return
+
+    # On calcule les scores cumulés des joueurs
+    scores = {}
+
+    for joueur in tournoi.joueurs:
+        scores[joueur.identifiant_national] = 0
+
+    for tour in tournoi.tours:
+        for match in tour.matchs:
+            scores[match.joueur_1.identifiant_national] += match.score_joueur_1
+            scores[match.joueur_2.identifiant_national] += match.score_joueur_2
+
+    # On trie les joueurs selon leur score total
+    joueurs_tries = sorted(
+        tournoi.joueurs,
+        key=lambda joueur: scores[joueur.identifiant_national],
+        reverse=True,
+    )
+
+    # Création du nouveau tour
+    numero = len(tournoi.tours) + 1
+    nouveau_tour = Tour(f"Tour {numero}")
+    nouveau_tour.demarrer()
+
+    # Création des matchs (simple pairing)
+    for i in range(0, len(joueurs_tries), 2):
+        match = Match(joueurs_tries[i], joueurs_tries[i + 1])
+        nouveau_tour.ajouter_match(match)
+
+    # Ajout au tournoi
+    tournoi.ajouter_tour(nouveau_tour)
+
+    # Sauvegarde
+    mettre_a_jour_tournoi_existant(numero_tournoi, tournoi)
+
+    print(f"\n{nouveau_tour.nom} créé avec {len(nouveau_tour.matchs)} matchs.")
