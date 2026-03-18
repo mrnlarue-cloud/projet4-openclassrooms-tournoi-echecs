@@ -286,6 +286,41 @@ def saisir_scores_tour(tournoi, numero_tournoi):
     print("\nLes scores du tour ont bien été enregistrés.")
 
 
+def cloturer_tour(tournoi, numero_tournoi):
+    # On vérifie qu'un tour existe bien dans le tournoi.
+    # Sinon, il n'y a rien à clôturer.
+    if not tournoi.tours:
+        print("Aucun tour n'a encore été créé.")
+        return
+
+    # On récupère le dernier tour enregistré,
+    # car c'est lui qui correspond au tour en cours.
+    dernier_tour = tournoi.tours[-1]
+
+    # Si le tour a déjà une date de fin,
+    # on considère qu'il est déjà clôturé.
+    if dernier_tour.date_fin is not None:
+        print("Ce tour a déjà été clôturé.")
+        return
+
+    # On vérifie que tous les matchs ont bien reçu un résultat.
+    # Pour l'instant, un match non joué est repéré ici
+    # par deux scores encore à 0.
+    for match in dernier_tour.matchs:
+        if match.score_joueur_1 == 0 and match.score_joueur_2 == 0:
+            print("Tous les scores du tour doivent être saisis avant la clôture.")
+            return
+
+    # On enregistre la date et l'heure de fin du tour.
+    dernier_tour.terminer()
+
+    # On sauvegarde immédiatement le tournoi mis à jour
+    # pour conserver la clôture dans le fichier JSON.
+    mettre_a_jour_tournoi_existant(numero_tournoi, tournoi)
+
+    print(f"\n{dernier_tour.nom} a bien été clôturé.")
+
+
 # Cette fonction gère tout le menu d'un tournoi chargé.
 # On reste dans ce menu tant que l'utilisateur ne choisit pas de revenir.
 def gerer_menu_tournoi_charge(numero_tournoi, tournoi_charge):
@@ -355,6 +390,10 @@ def gerer_menu_tournoi_charge(numero_tournoi, tournoi_charge):
         # Choix 6 : saisie des scores du tour en cours.
         elif choix_tournoi == "6":
             saisir_scores_tour(tournoi_charge, numero_tournoi)
+
+        elif choix_tournoi == "7":
+            # On lance la clôture du tour en cours.
+            cloturer_tour(tournoi_charge, numero_tournoi)
 
         else:
             print("Choix invalide.")

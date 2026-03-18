@@ -135,7 +135,7 @@
             {
                 "nom": "Tour 1",
                 "date_debut": "18/03/2026 08:58:34",
-                "date_fin": null,
+                "date_fin": "18/03/2026 09:56:58",
                 "matchs": [
                     {
                         "joueur_1": {
@@ -152,8 +152,8 @@
                             "identifiant_national": "FR2002",
                             "classement": 1220
                         },
-                        "score_joueur_1": 0,
-                        "score_joueur_2": 0
+                        "score_joueur_1": 1.0,
+                        "score_joueur_2": 0.0
                     },
                     {
                         "joueur_1": {
@@ -170,8 +170,8 @@
                             "identifiant_national": "AB1234",
                             "classement": 1200
                         },
-                        "score_joueur_1": 0,
-                        "score_joueur_2": 0
+                        "score_joueur_1": 0.0,
+                        "score_joueur_2": 1.0
                     },
                     {
                         "joueur_1": {
@@ -188,8 +188,8 @@
                             "identifiant_national": "FR2001",
                             "classement": 1180
                         },
-                        "score_joueur_1": 0,
-                        "score_joueur_2": 0
+                        "score_joueur_1": 1.0,
+                        "score_joueur_2": 0.0
                     },
                     {
                         "joueur_1": {
@@ -206,8 +206,8 @@
                             "identifiant_national": "FR2006",
                             "classement": 1160
                         },
-                        "score_joueur_1": 0,
-                        "score_joueur_2": 0
+                        "score_joueur_1": 1.0,
+                        "score_joueur_2": 0.0
                     }
                 ]
             }

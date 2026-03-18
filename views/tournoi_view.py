@@ -83,7 +83,7 @@ def afficher_details_tournoi_charge(tournoi):
 
 # Cette fonction affiche le menu des actions possibles
 # pour un tournoi déjà chargé.
-# Elle se contente d'afficher les choix dans la console.
+# Elle ne fait qu'afficher les choix disponibles.
 def afficher_menu_tournoi():
     print("\n=== Menu du tournoi ===")
     print("1. Afficher les détails du tournoi")
@@ -92,6 +92,7 @@ def afficher_menu_tournoi():
     print("4. Retour au menu principal")
     print("5. Démarrer le tournoi")
     print("6. Saisir les scores du tour")
+    print("7. Clôturer le tour")
 
 
 # Cette fonction récupère le choix de l'utilisateur
