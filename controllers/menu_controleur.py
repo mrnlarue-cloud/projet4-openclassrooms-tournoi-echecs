@@ -252,7 +252,18 @@ def demarrer_tournoi(numero_tournoi, tournoi):
 
 
 def saisir_scores_tour(tournoi, numero_tournoi):
-    """Saisit les scores du tour en cours."""
+    """
+    Saisit les scores du tour en cours et valide uniquement
+    les résultats autorisés pour un match d'échecs.
+
+    Résultats acceptés :
+    - 1 / 0
+    - 0 / 1
+    - 0.5 / 0.5
+
+    Si un résultat invalide est saisi, aucun score du tour
+    n'est enregistré.
+    """
     if not tournoi.tours:
         afficher_message("Aucun tour n'a encore été créé.")
         return
@@ -265,12 +276,30 @@ def saisir_scores_tour(tournoi, numero_tournoi):
 
     afficher_entete_saisie_scores(dernier_tour.nom)
 
+    scores_valides = {
+        (1, 0),
+        (0, 1),
+        (0.5, 0.5),
+    }
+
+    scores_a_enregistrer = []
+
     for match in dernier_tour.matchs:
         afficher_match_a_saisir(match)
 
         score_joueur_1 = demander_score_valide("Score du joueur 1 (0, 0.5, 1) : ")
         score_joueur_2 = demander_score_valide("Score du joueur 2 (0, 0.5, 1) : ")
 
+        if (score_joueur_1, score_joueur_2) not in scores_valides:
+            afficher_message(
+                "Résultat invalide. Les scores autorisés sont : "
+                "1 / 0, 0 / 1 ou 0.5 / 0.5."
+            )
+            return
+
+        scores_a_enregistrer.append((match, score_joueur_1, score_joueur_2))
+
+    for match, score_joueur_1, score_joueur_2 in scores_a_enregistrer:
         match.score_joueur_1 = score_joueur_1
         match.score_joueur_2 = score_joueur_2
 
