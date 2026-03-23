@@ -14,6 +14,7 @@ from views.tournoi_view import (
     afficher_message_tournoi_enregistre,
     afficher_tournoi_charge,
     afficher_tournois_enregistres,
+    afficher_tours_tournoi,
     demander_choix_menu_tournoi,
     demander_informations_joueur,
     demander_informations_tournoi,
@@ -167,6 +168,12 @@ def afficher_rapport_joueurs_par_classement(tournoi):
         joueurs_tries,
         "=== Rapport : joueurs par classement ===",
     )
+
+
+# Cette fonction prépare le rapport
+# de la liste des tours du tournoi.
+def afficher_rapport_tours(tournoi):
+    afficher_tours_tournoi(tournoi.tours)
 
 
 # Cette fonction crée les 4 matchs du premier tour

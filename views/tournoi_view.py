@@ -148,3 +148,29 @@ def afficher_joueurs_tournoi(joueurs, titre="=== Joueurs du tournoi ==="):
             f"{numero}. {joueur.nom} {joueur.prenom} - "
             f"Classement : {joueur.classement}"
         )
+
+
+# Cette fonction affiche la liste des tours
+# enregistrés dans un tournoi.
+def afficher_tours_tournoi(tours):
+    print("\n=== Rapport : liste des tours ===")
+
+    # Si aucun tour n'existe encore,
+    # on affiche un message simple.
+    if not tours:
+        print("Aucun tour n'est encore enregistré dans ce tournoi.")
+        return
+
+    # On affiche chaque tour avec son numéro,
+    # sa date de début et sa date de fin.
+    for numero, tour in enumerate(tours, start=1):
+        date_fin = tour.date_fin
+
+        if date_fin is None:
+            date_fin = "Tour en cours"
+
+        print(
+            f"{numero}. {tour.nom} - "
+            f"Début : {tour.date_debut} - "
+            f"Fin : {date_fin}"
+        )
