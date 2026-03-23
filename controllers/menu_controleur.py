@@ -55,6 +55,7 @@ def enregistrer_tournoi(tournoi):
     tournois_enregistres.append(tournoi.to_dict())
 
     chemin_fichier = recuperer_chemin_fichier_tournois()
+    chemin_fichier.parent.mkdir(parents=True, exist_ok=True)
 
     with open(chemin_fichier, "w", encoding="utf-8") as fichier:
         json.dump(tournois_enregistres, fichier, indent=4, ensure_ascii=False)
@@ -66,6 +67,7 @@ def mettre_a_jour_tournoi_existant(numero_tournoi, tournoi):
     tournois_enregistres[numero_tournoi - 1] = tournoi.to_dict()
 
     chemin_fichier = recuperer_chemin_fichier_tournois()
+    chemin_fichier.parent.mkdir(parents=True, exist_ok=True)
 
     with open(chemin_fichier, "w", encoding="utf-8") as fichier:
         json.dump(tournois_enregistres, fichier, indent=4, ensure_ascii=False)
