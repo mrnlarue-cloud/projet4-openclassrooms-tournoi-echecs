@@ -88,7 +88,7 @@ def afficher_menu_tournoi():
     print("\n=== Menu du tournoi ===")
     print("1. Afficher les détails du tournoi")
     print("2. Ajouter un joueur")
-    print("3. Afficher les joueurs")
+    print("3. Rapport : joueurs par ordre alphabétique")
     print("4. Retour au menu principal")
     print("5. Démarrer le tournoi")
     print("6. Saisir les scores du tour")
@@ -128,12 +128,11 @@ def demander_informations_joueur():
     }
 
 
-# Cette fonction affiche la liste des joueurs
-# d'un tournoi chargé.
-# Elle reçoit directement la liste des joueurs
-# déjà présente dans l'objet tournoi.
-def afficher_joueurs_tournoi(joueurs):
-    print("\n=== Joueurs du tournoi ===")
+# Cette fonction affiche une liste de joueurs dans la console.
+# Elle peut servir pour l'affichage classique
+# ou pour un rapport avec un titre différent.
+def afficher_joueurs_tournoi(joueurs, titre="=== Joueurs du tournoi ==="):
+    print(f"\n{titre}")
 
     # Si aucun joueur n'est encore ajouté,
     # on affiche un message simple.
@@ -145,6 +144,6 @@ def afficher_joueurs_tournoi(joueurs):
     # pour rendre la lecture plus claire.
     for numero, joueur in enumerate(joueurs, start=1):
         print(
-            f"{numero}. {joueur.prenom} {joueur.nom} - "
+            f"{numero}. {joueur.nom} {joueur.prenom} - "
             f"Classement : {joueur.classement}"
         )

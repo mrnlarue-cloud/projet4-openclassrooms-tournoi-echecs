@@ -173,6 +173,30 @@ def creer_matchs_premier_tour(joueurs_tries):
     return matchs
 
 
+# Cette fonction trie les joueurs par ordre alphabétique.
+# On trie d'abord par nom, puis par prénom.
+def trier_joueurs_par_ordre_alphabetique(joueurs):
+    return sorted(
+        joueurs,
+        key=lambda joueur: (
+            joueur.nom.lower(),
+            joueur.prenom.lower(),
+        ),
+    )
+
+
+# Cette fonction prépare le rapport des joueurs
+# triés par ordre alphabétique
+# puis envoie la liste triée à la vue.
+def afficher_rapport_joueurs_ordre_alphabetique(tournoi):
+    joueurs_tries = trier_joueurs_par_ordre_alphabetique(tournoi.joueurs)
+
+    afficher_joueurs_tournoi(
+        joueurs_tries,
+        "=== Rapport : joueurs par ordre alphabétique ===",
+    )
+
+
 # Cette fonction démarre réellement le tournoi.
 # Elle crée Tour 1, ses matchs, sauvegarde le tout
 # puis affiche les appariements dans la console.
@@ -514,7 +538,7 @@ def gerer_menu_tournoi_charge(numero_tournoi, tournoi_charge):
             print(f'\nLe joueur "{joueur.prenom} {joueur.nom}" a bien été ajouté.')
 
         elif choix_tournoi == "3":
-            afficher_joueurs_tournoi(tournoi_charge.joueurs)
+            afficher_rapport_joueurs_ordre_alphabetique(tournoi_charge)
 
         elif choix_tournoi == "4":
             menu_tournoi_actif = False
