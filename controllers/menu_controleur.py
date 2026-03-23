@@ -158,6 +158,17 @@ def trier_joueurs_par_classement(joueurs):
     return sorted(joueurs, key=lambda joueur: joueur.classement, reverse=True)
 
 
+# Cette fonction prépare le rapport des joueurs
+# triés par classement
+def afficher_rapport_joueurs_par_classement(tournoi):
+    joueurs_tries = trier_joueurs_par_classement(tournoi.joueurs)
+
+    afficher_joueurs_tournoi(
+        joueurs_tries,
+        "=== Rapport : joueurs par classement ===",
+    )
+
+
 # Cette fonction crée les 4 matchs du premier tour
 # à partir de la liste triée des 8 joueurs.
 def creer_matchs_premier_tour(joueurs_tries):
@@ -541,18 +552,21 @@ def gerer_menu_tournoi_charge(numero_tournoi, tournoi_charge):
             afficher_rapport_joueurs_ordre_alphabetique(tournoi_charge)
 
         elif choix_tournoi == "4":
-            menu_tournoi_actif = False
+            afficher_rapport_joueurs_par_classement(tournoi_charge)
 
         elif choix_tournoi == "5":
-            demarrer_tournoi(numero_tournoi, tournoi_charge)
+            menu_tournoi_actif = False
 
         elif choix_tournoi == "6":
-            saisir_scores_tour(tournoi_charge, numero_tournoi)
+            demarrer_tournoi(numero_tournoi, tournoi_charge)
 
         elif choix_tournoi == "7":
-            cloturer_tour(tournoi_charge, numero_tournoi)
+            saisir_scores_tour(tournoi_charge, numero_tournoi)
 
         elif choix_tournoi == "8":
+            cloturer_tour(tournoi_charge, numero_tournoi)
+
+        elif choix_tournoi == "9":
             creer_tour_suivant(tournoi_charge, numero_tournoi)
 
         else:
