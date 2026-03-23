@@ -1,7 +1,5 @@
-# Cette fonction affiche le menu principal dans la console.
-# Son rôle est uniquement de montrer les actions possibles
-# à l'utilisateur au démarrage du programme.
 def afficher_menu_principal():
+    """Affiche le menu principal."""
     print("\n=== Gestionnaire de tournoi d'échecs ===")
     print("1. Créer un nouveau tournoi")
     print("2. Charger un tournoi existant")
@@ -9,8 +7,11 @@ def afficher_menu_principal():
     print("4. Quitter")
 
 
-# Cette fonction récupère le choix de l'utilisateur.
-# Elle lit simplement la saisie dans la console
-# puis enlève les espaces inutiles.
 def demander_choix():
+    """Demande le choix de l'utilisateur."""
     return input("Votre choix : ").strip()
+
+
+def afficher_message(message):
+    """Affiche un message simple."""
+    print(message)
