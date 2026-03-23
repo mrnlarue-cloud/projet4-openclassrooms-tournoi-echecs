@@ -55,6 +55,12 @@ def demander_numero_tournoi():
     return input("\nNuméro du tournoi à charger : ").strip()
 
 
+# Cette fonction demande à l'utilisateur
+# le numéro du tour qu'il veut consulter.
+def demander_numero_tour():
+    return input("\nNuméro du tour à consulter : ").strip()
+
+
 # Cette fonction affiche un message de confirmation
 # quand un tournoi a bien été chargé.
 def afficher_tournoi_charge(nom_tournoi):
@@ -90,11 +96,13 @@ def afficher_menu_tournoi():
     print("2. Ajouter un joueur")
     print("3. Rapport : joueurs par ordre alphabétique")
     print("4. Rapport : joueurs par classement")
-    print("5. Retour au menu principal")
-    print("6. Démarrer le tournoi")
-    print("7. Saisir les scores du tour")
-    print("8. Clôturer le tour")
-    print("9. Créer le tour suivant")
+    print("5. Rapport : liste des tours")
+    print("6. Rapport : matchs d'un tour")
+    print("7. Retour au menu principal")
+    print("8. Démarrer le tournoi")
+    print("9. Saisir les scores du tour")
+    print("10. Clôturer le tour")
+    print("11. Créer le tour suivant")
 
 
 # Cette fonction récupère le choix de l'utilisateur
@@ -173,4 +181,26 @@ def afficher_tours_tournoi(tours):
             f"{numero}. {tour.nom} - "
             f"Début : {tour.date_debut} - "
             f"Fin : {date_fin}"
+        )
+
+
+# Cette fonction affiche les matchs d'un tour.
+def afficher_matchs_tour(tour):
+    print(f"\n=== Rapport : matchs du {tour.nom} ===")
+
+    # Si aucun match n'est enregistré,
+    # on affiche un message simple.
+    if not tour.matchs:
+        print("Aucun match n'est enregistré dans ce tour.")
+        return
+
+    # On affiche chaque match avec son numéro,
+    # les deux joueurs et leurs scores.
+    for numero, match in enumerate(tour.matchs, start=1):
+        print(
+            f"{numero}. "
+            f"{match.joueur_1.prenom} {match.joueur_1.nom} "
+            f"vs "
+            f"{match.joueur_2.prenom} {match.joueur_2.nom} "
+            f"- score : {match.score_joueur_1} / {match.score_joueur_2}"
         )

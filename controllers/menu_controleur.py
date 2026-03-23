@@ -10,6 +10,7 @@ from views.tournoi_view import (
     afficher_choix_tournoi_invalide,
     afficher_details_tournoi_charge,
     afficher_joueurs_tournoi,
+    afficher_matchs_tour,
     afficher_menu_tournoi,
     afficher_message_tournoi_enregistre,
     afficher_tournoi_charge,
@@ -18,6 +19,7 @@ from views.tournoi_view import (
     demander_choix_menu_tournoi,
     demander_informations_joueur,
     demander_informations_tournoi,
+    demander_numero_tour,
     demander_numero_tournoi,
 )
 
@@ -174,6 +176,37 @@ def afficher_rapport_joueurs_par_classement(tournoi):
 # de la liste des tours du tournoi.
 def afficher_rapport_tours(tournoi):
     afficher_tours_tournoi(tournoi.tours)
+
+
+# Cette fonction prépare le rapport
+# des matchs d'un tour donné.
+def afficher_rapport_matchs_tour(tour):
+    afficher_matchs_tour(tour)
+
+
+# Cette fonction permet de choisir un tour
+# puis d'afficher les matchs de ce tour.
+def afficher_rapport_matchs_d_un_tour(tournoi):
+    if not tournoi.tours:
+        print("Aucun tour n'est encore enregistré dans ce tournoi.")
+        return
+
+    afficher_tours_tournoi(tournoi.tours)
+
+    numero_saisi = demander_numero_tour()
+
+    if not numero_saisi.isdigit():
+        print("Numéro de tour invalide.")
+        return
+
+    numero_tour = int(numero_saisi)
+
+    if numero_tour < 1 or numero_tour > len(tournoi.tours):
+        print("Numéro de tour invalide.")
+        return
+
+    tour_selectionne = tournoi.tours[numero_tour - 1]
+    afficher_rapport_matchs_tour(tour_selectionne)
 
 
 # Cette fonction crée les 4 matchs du premier tour
@@ -562,18 +595,24 @@ def gerer_menu_tournoi_charge(numero_tournoi, tournoi_charge):
             afficher_rapport_joueurs_par_classement(tournoi_charge)
 
         elif choix_tournoi == "5":
-            menu_tournoi_actif = False
+            afficher_rapport_tours(tournoi_charge)
 
         elif choix_tournoi == "6":
-            demarrer_tournoi(numero_tournoi, tournoi_charge)
+            afficher_rapport_matchs_d_un_tour(tournoi_charge)
 
         elif choix_tournoi == "7":
-            saisir_scores_tour(tournoi_charge, numero_tournoi)
+            menu_tournoi_actif = False
 
         elif choix_tournoi == "8":
-            cloturer_tour(tournoi_charge, numero_tournoi)
+            demarrer_tournoi(numero_tournoi, tournoi_charge)
 
         elif choix_tournoi == "9":
+            saisir_scores_tour(tournoi_charge, numero_tournoi)
+
+        elif choix_tournoi == "10":
+            cloturer_tour(tournoi_charge, numero_tournoi)
+
+        elif choix_tournoi == "11":
             creer_tour_suivant(tournoi_charge, numero_tournoi)
 
         else:
