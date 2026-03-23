@@ -4,63 +4,63 @@
         "lieu": "Paris",
         "date_debut": "01/01/2024",
         "date_fin": null,
-        "description": "Tournoi de test prêt à démarrer",
+        "description": "Tournoi de test pret a demarrer",
         "nombre_tours": 4,
         "joueurs": [
             {
-                "prenom": "Alice",
-                "nom": "Martin",
-                "date_naissance": "01/01/1990",
-                "identifiant_national": "FR1001",
-                "classement": 1230
+                "prenom": "Lina",
+                "nom": "Morel",
+                "date_naissance": "12/03/1993",
+                "identifiant_national": "FR3001",
+                "classement": 1240
             },
             {
-                "prenom": "Bob",
-                "nom": "Durand",
-                "date_naissance": "02/02/1992",
-                "identifiant_national": "FR1002",
+                "prenom": "Noah",
+                "nom": "Caron",
+                "date_naissance": "05/07/1991",
+                "identifiant_national": "FR3002",
+                "classement": 1220
+            },
+            {
+                "prenom": "Sara",
+                "nom": "Duval",
+                "date_naissance": "28/11/1990",
+                "identifiant_national": "FR3003",
                 "classement": 1210
             },
             {
-                "prenom": "Clara",
-                "nom": "Petit",
-                "date_naissance": "03/03/1991",
-                "identifiant_national": "FR1003",
-                "classement": 1200
-            },
-            {
-                "prenom": "David",
-                "nom": "Bernard",
-                "date_naissance": "04/04/1989",
-                "identifiant_national": "FR1004",
+                "prenom": "Adam",
+                "nom": "Picard",
+                "date_naissance": "09/02/1988",
+                "identifiant_national": "FR3004",
                 "classement": 1190
             },
             {
-                "prenom": "Emma",
-                "nom": "Moreau",
-                "date_naissance": "05/05/1993",
-                "identifiant_national": "FR1005",
+                "prenom": "Ines",
+                "nom": "Renard",
+                "date_naissance": "16/06/1995",
+                "identifiant_national": "FR3005",
                 "classement": 1180
             },
             {
-                "prenom": "Farid",
-                "nom": "Roux",
-                "date_naissance": "06/06/1988",
-                "identifiant_national": "FR1006",
+                "prenom": "Yanis",
+                "nom": "Marchand",
+                "date_naissance": "22/09/1992",
+                "identifiant_national": "FR3006",
                 "classement": 1170
             },
             {
-                "prenom": "Gina",
-                "nom": "Garcia",
-                "date_naissance": "07/07/1994",
-                "identifiant_national": "FR1007",
+                "prenom": "Lea",
+                "nom": "Faure",
+                "date_naissance": "03/01/1994",
+                "identifiant_national": "FR3007",
                 "classement": 1160
             },
             {
-                "prenom": "Hugo",
-                "nom": "Lopez",
-                "date_naissance": "08/08/1992",
-                "identifiant_national": "FR1008",
+                "prenom": "Milo",
+                "nom": "Blanc",
+                "date_naissance": "14/12/1989",
+                "identifiant_national": "FR3008",
                 "classement": 1150
             }
         ],
@@ -71,64 +71,64 @@
         "lieu": "Tokyo",
         "date_debut": "16/03/2026",
         "date_fin": null,
-        "description": "Tournoi de test prêt pour la saisie des scores",
+        "description": "Tournoi de test pret pour la saisie des scores",
         "nombre_tours": 4,
         "joueurs": [
             {
-                "prenom": "Mélissa",
-                "nom": "Doe",
-                "date_naissance": "13/04/1985",
-                "identifiant_national": "AB1234",
-                "classement": 1200
+                "prenom": "Kenji",
+                "nom": "Sato",
+                "date_naissance": "11/04/1990",
+                "identifiant_national": "JP4001",
+                "classement": 1230
             },
             {
-                "prenom": "Lucas",
-                "nom": "Martin",
-                "date_naissance": "21/09/1991",
-                "identifiant_national": "FR2001",
-                "classement": 1180
-            },
-            {
-                "prenom": "Nora",
-                "nom": "Petit",
-                "date_naissance": "08/11/1989",
-                "identifiant_national": "FR2002",
+                "prenom": "Mika",
+                "nom": "Tanaka",
+                "date_naissance": "23/08/1992",
+                "identifiant_national": "JP4002",
                 "classement": 1220
             },
             {
-                "prenom": "Yassine",
-                "nom": "Bernard",
-                "date_naissance": "14/02/1993",
-                "identifiant_national": "FR2003",
-                "classement": 1190
-            },
-            {
-                "prenom": "Clara",
-                "nom": "Moreau",
-                "date_naissance": "30/06/1990",
-                "identifiant_national": "FR2004",
+                "prenom": "Riku",
+                "nom": "Kobayashi",
+                "date_naissance": "02/01/1989",
+                "identifiant_national": "JP4003",
                 "classement": 1210
             },
             {
-                "prenom": "Thomas",
-                "nom": "Roux",
-                "date_naissance": "17/01/1988",
-                "identifiant_national": "FR2005",
+                "prenom": "Aoi",
+                "nom": "Nakamura",
+                "date_naissance": "19/10/1993",
+                "identifiant_national": "JP4004",
+                "classement": 1200
+            },
+            {
+                "prenom": "Yuna",
+                "nom": "Ito",
+                "date_naissance": "30/05/1994",
+                "identifiant_national": "JP4005",
+                "classement": 1190
+            },
+            {
+                "prenom": "Haru",
+                "nom": "Yamamoto",
+                "date_naissance": "07/07/1991",
+                "identifiant_national": "JP4006",
+                "classement": 1180
+            },
+            {
+                "prenom": "Sora",
+                "nom": "Watanabe",
+                "date_naissance": "15/09/1995",
+                "identifiant_national": "JP4007",
                 "classement": 1170
             },
             {
-                "prenom": "Anna",
-                "nom": "Garcia",
-                "date_naissance": "25/03/1994",
-                "identifiant_national": "FR2006",
+                "prenom": "Emi",
+                "nom": "Takahashi",
+                "date_naissance": "26/12/1988",
+                "identifiant_national": "JP4008",
                 "classement": 1160
-            },
-            {
-                "prenom": "Hugo",
-                "nom": "Lopez",
-                "date_naissance": "09/12/1992",
-                "identifiant_national": "FR2007",
-                "classement": 1230
             }
         ],
         "tours": [
@@ -139,17 +139,17 @@
                 "matchs": [
                     {
                         "joueur_1": {
-                            "prenom": "Hugo",
-                            "nom": "Lopez",
-                            "date_naissance": "09/12/1992",
-                            "identifiant_national": "FR2007",
+                            "prenom": "Kenji",
+                            "nom": "Sato",
+                            "date_naissance": "11/04/1990",
+                            "identifiant_national": "JP4001",
                             "classement": 1230
                         },
                         "joueur_2": {
-                            "prenom": "Nora",
-                            "nom": "Petit",
-                            "date_naissance": "08/11/1989",
-                            "identifiant_national": "FR2002",
+                            "prenom": "Mika",
+                            "nom": "Tanaka",
+                            "date_naissance": "23/08/1992",
+                            "identifiant_national": "JP4002",
                             "classement": 1220
                         },
                         "score_joueur_1": 1.0,
@@ -157,53 +157,53 @@
                     },
                     {
                         "joueur_1": {
-                            "prenom": "Clara",
-                            "nom": "Moreau",
-                            "date_naissance": "30/06/1990",
-                            "identifiant_national": "FR2004",
+                            "prenom": "Riku",
+                            "nom": "Kobayashi",
+                            "date_naissance": "02/01/1989",
+                            "identifiant_national": "JP4003",
                             "classement": 1210
                         },
                         "joueur_2": {
-                            "prenom": "Mélissa",
-                            "nom": "Doe",
-                            "date_naissance": "13/04/1985",
-                            "identifiant_national": "AB1234",
+                            "prenom": "Aoi",
+                            "nom": "Nakamura",
+                            "date_naissance": "19/10/1993",
+                            "identifiant_national": "JP4004",
                             "classement": 1200
+                        },
+                        "score_joueur_1": 0.5,
+                        "score_joueur_2": 0.5
+                    },
+                    {
+                        "joueur_1": {
+                            "prenom": "Yuna",
+                            "nom": "Ito",
+                            "date_naissance": "30/05/1994",
+                            "identifiant_national": "JP4005",
+                            "classement": 1190
+                        },
+                        "joueur_2": {
+                            "prenom": "Haru",
+                            "nom": "Yamamoto",
+                            "date_naissance": "07/07/1991",
+                            "identifiant_national": "JP4006",
+                            "classement": 1180
                         },
                         "score_joueur_1": 0.0,
                         "score_joueur_2": 1.0
                     },
                     {
                         "joueur_1": {
-                            "prenom": "Yassine",
-                            "nom": "Bernard",
-                            "date_naissance": "14/02/1993",
-                            "identifiant_national": "FR2003",
-                            "classement": 1190
-                        },
-                        "joueur_2": {
-                            "prenom": "Lucas",
-                            "nom": "Martin",
-                            "date_naissance": "21/09/1991",
-                            "identifiant_national": "FR2001",
-                            "classement": 1180
-                        },
-                        "score_joueur_1": 1.0,
-                        "score_joueur_2": 0.0
-                    },
-                    {
-                        "joueur_1": {
-                            "prenom": "Thomas",
-                            "nom": "Roux",
-                            "date_naissance": "17/01/1988",
-                            "identifiant_national": "FR2005",
+                            "prenom": "Sora",
+                            "nom": "Watanabe",
+                            "date_naissance": "15/09/1995",
+                            "identifiant_national": "JP4007",
                             "classement": 1170
                         },
                         "joueur_2": {
-                            "prenom": "Anna",
-                            "nom": "Garcia",
-                            "date_naissance": "25/03/1994",
-                            "identifiant_national": "FR2006",
+                            "prenom": "Emi",
+                            "nom": "Takahashi",
+                            "date_naissance": "26/12/1988",
+                            "identifiant_national": "JP4008",
                             "classement": 1160
                         },
                         "score_joueur_1": 1.0,
@@ -218,74 +218,74 @@
                 "matchs": [
                     {
                         "joueur_1": {
-                            "prenom": "Mélissa",
-                            "nom": "Doe",
-                            "date_naissance": "13/04/1985",
-                            "identifiant_national": "AB1234",
-                            "classement": 1200
-                        },
-                        "joueur_2": {
-                            "prenom": "Yassine",
-                            "nom": "Bernard",
-                            "date_naissance": "14/02/1993",
-                            "identifiant_national": "FR2003",
-                            "classement": 1190
-                        },
-                        "score_joueur_1": 1.0,
-                        "score_joueur_2": 0.0
-                    },
-                    {
-                        "joueur_1": {
-                            "prenom": "Thomas",
-                            "nom": "Roux",
-                            "date_naissance": "17/01/1988",
-                            "identifiant_national": "FR2005",
-                            "classement": 1170
-                        },
-                        "joueur_2": {
-                            "prenom": "Hugo",
-                            "nom": "Lopez",
-                            "date_naissance": "09/12/1992",
-                            "identifiant_national": "FR2007",
+                            "prenom": "Kenji",
+                            "nom": "Sato",
+                            "date_naissance": "11/04/1990",
+                            "identifiant_national": "JP4001",
                             "classement": 1230
                         },
-                        "score_joueur_1": 0.0,
-                        "score_joueur_2": 1.0
+                        "joueur_2": {
+                            "prenom": "Riku",
+                            "nom": "Kobayashi",
+                            "date_naissance": "02/01/1989",
+                            "identifiant_national": "JP4003",
+                            "classement": 1210
+                        },
+                        "score_joueur_1": 0.5,
+                        "score_joueur_2": 0.5
                     },
                     {
                         "joueur_1": {
-                            "prenom": "Lucas",
-                            "nom": "Martin",
-                            "date_naissance": "21/09/1991",
-                            "identifiant_national": "FR2001",
+                            "prenom": "Haru",
+                            "nom": "Yamamoto",
+                            "date_naissance": "07/07/1991",
+                            "identifiant_national": "JP4006",
                             "classement": 1180
                         },
                         "joueur_2": {
-                            "prenom": "Nora",
-                            "nom": "Petit",
-                            "date_naissance": "08/11/1989",
-                            "identifiant_national": "FR2002",
-                            "classement": 1220
+                            "prenom": "Sora",
+                            "nom": "Watanabe",
+                            "date_naissance": "15/09/1995",
+                            "identifiant_national": "JP4007",
+                            "classement": 1170
                         },
                         "score_joueur_1": 1.0,
                         "score_joueur_2": 0.0
                     },
                     {
                         "joueur_1": {
-                            "prenom": "Clara",
-                            "nom": "Moreau",
-                            "date_naissance": "30/06/1990",
-                            "identifiant_national": "FR2004",
-                            "classement": 1210
+                            "prenom": "Mika",
+                            "nom": "Tanaka",
+                            "date_naissance": "23/08/1992",
+                            "identifiant_national": "JP4002",
+                            "classement": 1220
                         },
                         "joueur_2": {
-                            "prenom": "Anna",
-                            "nom": "Garcia",
-                            "date_naissance": "25/03/1994",
-                            "identifiant_national": "FR2006",
-                            "classement": 1160
+                            "prenom": "Aoi",
+                            "nom": "Nakamura",
+                            "date_naissance": "19/10/1993",
+                            "identifiant_national": "JP4004",
+                            "classement": 1200
                         },
                         "score_joueur_1": 1.0,
+                        "score_joueur_2": 0.0
+                    },
+                    {
+                        "joueur_1": {
+                            "prenom": "Yuna",
+                            "nom": "Ito",
+                            "date_naissance": "30/05/1994",
+                            "identifiant_national": "JP4005",
+                            "classement": 1190
+                        },
+                        "joueur_2": {
+                            "prenom": "Emi",
+                            "nom": "Takahashi",
+                            "date_naissance": "26/12/1988",
+                            "identifiant_national": "JP4008",
+                            "classement": 1160
+                        },
+                        "score_joueur_1": 0.0,
                         "score_joueur_2": 1.0
                     }
                 ]
@@ -297,53 +297,53 @@
                 "matchs": [
                     {
                         "joueur_1": {
-                            "prenom": "Hugo",
-                            "nom": "Lopez",
-                            "date_naissance": "09/12/1992",
-                            "identifiant_national": "FR2007",
+                            "prenom": "Kenji",
+                            "nom": "Sato",
+                            "date_naissance": "11/04/1990",
+                            "identifiant_national": "JP4001",
                             "classement": 1230
                         },
                         "joueur_2": {
-                            "prenom": "Mélissa",
-                            "nom": "Doe",
-                            "date_naissance": "13/04/1985",
-                            "identifiant_national": "AB1234",
-                            "classement": 1200
+                            "prenom": "Haru",
+                            "nom": "Yamamoto",
+                            "date_naissance": "07/07/1991",
+                            "identifiant_national": "JP4006",
+                            "classement": 1180
                         },
                         "score_joueur_1": 0,
                         "score_joueur_2": 0
                     },
                     {
                         "joueur_1": {
-                            "prenom": "Clara",
-                            "nom": "Moreau",
-                            "date_naissance": "30/06/1990",
-                            "identifiant_national": "FR2004",
+                            "prenom": "Mika",
+                            "nom": "Tanaka",
+                            "date_naissance": "23/08/1992",
+                            "identifiant_national": "JP4002",
+                            "classement": 1220
+                        },
+                        "joueur_2": {
+                            "prenom": "Emi",
+                            "nom": "Takahashi",
+                            "date_naissance": "26/12/1988",
+                            "identifiant_national": "JP4008",
+                            "classement": 1160
+                        },
+                        "score_joueur_1": 0,
+                        "score_joueur_2": 0
+                    },
+                    {
+                        "joueur_1": {
+                            "prenom": "Riku",
+                            "nom": "Kobayashi",
+                            "date_naissance": "02/01/1989",
+                            "identifiant_national": "JP4003",
                             "classement": 1210
                         },
                         "joueur_2": {
-                            "prenom": "Yassine",
-                            "nom": "Bernard",
-                            "date_naissance": "14/02/1993",
-                            "identifiant_national": "FR2003",
-                            "classement": 1190
-                        },
-                        "score_joueur_1": 0,
-                        "score_joueur_2": 0
-                    },
-                    {
-                        "joueur_1": {
-                            "prenom": "Lucas",
-                            "nom": "Martin",
-                            "date_naissance": "21/09/1991",
-                            "identifiant_national": "FR2001",
-                            "classement": 1180
-                        },
-                        "joueur_2": {
-                            "prenom": "Thomas",
-                            "nom": "Roux",
-                            "date_naissance": "17/01/1988",
-                            "identifiant_national": "FR2005",
+                            "prenom": "Sora",
+                            "nom": "Watanabe",
+                            "date_naissance": "15/09/1995",
+                            "identifiant_national": "JP4007",
                             "classement": 1170
                         },
                         "score_joueur_1": 0,
@@ -351,18 +351,18 @@
                     },
                     {
                         "joueur_1": {
-                            "prenom": "Anna",
-                            "nom": "Garcia",
-                            "date_naissance": "25/03/1994",
-                            "identifiant_national": "FR2006",
-                            "classement": 1160
+                            "prenom": "Aoi",
+                            "nom": "Nakamura",
+                            "date_naissance": "19/10/1993",
+                            "identifiant_national": "JP4004",
+                            "classement": 1200
                         },
                         "joueur_2": {
-                            "prenom": "Nora",
-                            "nom": "Petit",
-                            "date_naissance": "08/11/1989",
-                            "identifiant_national": "FR2002",
-                            "classement": 1220
+                            "prenom": "Yuna",
+                            "nom": "Ito",
+                            "date_naissance": "30/05/1994",
+                            "identifiant_national": "JP4005",
+                            "classement": 1190
                         },
                         "score_joueur_1": 0,
                         "score_joueur_2": 0
