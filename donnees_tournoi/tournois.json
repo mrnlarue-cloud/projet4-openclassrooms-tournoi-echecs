@@ -370,5 +370,310 @@
                 ]
             }
         ]
-    }
+    },
+    {
+    "nom": "Oslo",
+    "lieu": "Oslo",
+    "date_debut": "27/03/2026",
+    "date_fin": null,
+    "description": "Tournoi de test pour verifier le fonctionnement des tours, des scores et des rapports",
+    "nombre_tours": 4,
+    "joueurs": [
+        {
+            "prenom": "Erik",
+            "nom": "Hansen",
+            "date_naissance": "14/02/1990",
+            "identifiant_national": "NO5001",
+            "classement": 1250
+        },
+        {
+            "prenom": "Ingrid",
+            "nom": "Nilsen",
+            "date_naissance": "08/06/1992",
+            "identifiant_national": "NO5002",
+            "classement": 1230
+        },
+        {
+            "prenom": "Lars",
+            "nom": "Johansen",
+            "date_naissance": "22/09/1989",
+            "identifiant_national": "NO5003",
+            "classement": 1210
+        },
+        {
+            "prenom": "Maja",
+            "nom": "Berg",
+            "date_naissance": "03/11/1994",
+            "identifiant_national": "NO5004",
+            "classement": 1200
+        },
+        {
+            "prenom": "Soren",
+            "nom": "Dahl",
+            "date_naissance": "17/01/1991",
+            "identifiant_national": "NO5005",
+            "classement": 1190
+        },
+        {
+            "prenom": "Nora",
+            "nom": "Larsen",
+            "date_naissance": "29/04/1993",
+            "identifiant_national": "NO5006",
+            "classement": 1180
+        },
+        {
+            "prenom": "Elias",
+            "nom": "Solberg",
+            "date_naissance": "12/08/1995",
+            "identifiant_national": "NO5007",
+            "classement": 1170
+        },
+        {
+            "prenom": "Hanna",
+            "nom": "Vik",
+            "date_naissance": "05/12/1988",
+            "identifiant_national": "NO5008",
+            "classement": 1160
+        }
+    ],
+    "tours": [
+        {
+            "nom": "Tour 1",
+            "date_debut": "27/03/2026 09:00:00",
+            "date_fin": "27/03/2026 09:25:00",
+            "matchs": [
+                {
+                    "joueur_1": {
+                        "prenom": "Erik",
+                        "nom": "Hansen",
+                        "date_naissance": "14/02/1990",
+                        "identifiant_national": "NO5001",
+                        "classement": 1250
+                    },
+                    "joueur_2": {
+                        "prenom": "Ingrid",
+                        "nom": "Nilsen",
+                        "date_naissance": "08/06/1992",
+                        "identifiant_national": "NO5002",
+                        "classement": 1230
+                    },
+                    "score_joueur_1": 1.0,
+                    "score_joueur_2": 0.0
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Lars",
+                        "nom": "Johansen",
+                        "date_naissance": "22/09/1989",
+                        "identifiant_national": "NO5003",
+                        "classement": 1210
+                    },
+                    "joueur_2": {
+                        "prenom": "Maja",
+                        "nom": "Berg",
+                        "date_naissance": "03/11/1994",
+                        "identifiant_national": "NO5004",
+                        "classement": 1200
+                    },
+                    "score_joueur_1": 0.5,
+                    "score_joueur_2": 0.5
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Soren",
+                        "nom": "Dahl",
+                        "date_naissance": "17/01/1991",
+                        "identifiant_national": "NO5005",
+                        "classement": 1190
+                    },
+                    "joueur_2": {
+                        "prenom": "Nora",
+                        "nom": "Larsen",
+                        "date_naissance": "29/04/1993",
+                        "identifiant_national": "NO5006",
+                        "classement": 1180
+                    },
+                    "score_joueur_1": 0.0,
+                    "score_joueur_2": 1.0
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Elias",
+                        "nom": "Solberg",
+                        "date_naissance": "12/08/1995",
+                        "identifiant_national": "NO5007",
+                        "classement": 1170
+                    },
+                    "joueur_2": {
+                        "prenom": "Hanna",
+                        "nom": "Vik",
+                        "date_naissance": "05/12/1988",
+                        "identifiant_national": "NO5008",
+                        "classement": 1160
+                    },
+                    "score_joueur_1": 1.0,
+                    "score_joueur_2": 0.0
+                }
+            ]
+        },
+        {
+            "nom": "Tour 2",
+            "date_debut": "27/03/2026 09:35:00",
+            "date_fin": "27/03/2026 10:00:00",
+            "matchs": [
+                {
+                    "joueur_1": {
+                        "prenom": "Erik",
+                        "nom": "Hansen",
+                        "date_naissance": "14/02/1990",
+                        "identifiant_national": "NO5001",
+                        "classement": 1250
+                    },
+                    "joueur_2": {
+                        "prenom": "Nora",
+                        "nom": "Larsen",
+                        "date_naissance": "29/04/1993",
+                        "identifiant_national": "NO5006",
+                        "classement": 1180
+                    },
+                    "score_joueur_1": 0.5,
+                    "score_joueur_2": 0.5
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Elias",
+                        "nom": "Solberg",
+                        "date_naissance": "12/08/1995",
+                        "identifiant_national": "NO5007",
+                        "classement": 1170
+                    },
+                    "joueur_2": {
+                        "prenom": "Lars",
+                        "nom": "Johansen",
+                        "date_naissance": "22/09/1989",
+                        "identifiant_national": "NO5003",
+                        "classement": 1210
+                    },
+                    "score_joueur_1": 0.0,
+                    "score_joueur_2": 1.0
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Maja",
+                        "nom": "Berg",
+                        "date_naissance": "03/11/1994",
+                        "identifiant_national": "NO5004",
+                        "classement": 1200
+                    },
+                    "joueur_2": {
+                        "prenom": "Ingrid",
+                        "nom": "Nilsen",
+                        "date_naissance": "08/06/1992",
+                        "identifiant_national": "NO5002",
+                        "classement": 1230
+                    },
+                    "score_joueur_1": 1.0,
+                    "score_joueur_2": 0.0
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Soren",
+                        "nom": "Dahl",
+                        "date_naissance": "17/01/1991",
+                        "identifiant_national": "NO5005",
+                        "classement": 1190
+                    },
+                    "joueur_2": {
+                        "prenom": "Hanna",
+                        "nom": "Vik",
+                        "date_naissance": "05/12/1988",
+                        "identifiant_national": "NO5008",
+                        "classement": 1160
+                    },
+                    "score_joueur_1": 0.5,
+                    "score_joueur_2": 0.5
+                }
+            ]
+        },
+        {
+            "nom": "Tour 3",
+            "date_debut": "27/03/2026 10:10:00",
+            "date_fin": "27/03/2026 10:35:00",
+            "matchs": [
+                {
+                    "joueur_1": {
+                        "prenom": "Erik",
+                        "nom": "Hansen",
+                        "date_naissance": "14/02/1990",
+                        "identifiant_national": "NO5001",
+                        "classement": 1250
+                    },
+                    "joueur_2": {
+                        "prenom": "Lars",
+                        "nom": "Johansen",
+                        "date_naissance": "22/09/1989",
+                        "identifiant_national": "NO5003",
+                        "classement": 1210
+                    },
+                    "score_joueur_1": 1.0,
+                    "score_joueur_2": 0.0
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Maja",
+                        "nom": "Berg",
+                        "date_naissance": "03/11/1994",
+                        "identifiant_national": "NO5004",
+                        "classement": 1200
+                    },
+                    "joueur_2": {
+                        "prenom": "Nora",
+                        "nom": "Larsen",
+                        "date_naissance": "29/04/1993",
+                        "identifiant_national": "NO5006",
+                        "classement": 1180
+                    },
+                    "score_joueur_1": 0.5,
+                    "score_joueur_2": 0.5
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Elias",
+                        "nom": "Solberg",
+                        "date_naissance": "12/08/1995",
+                        "identifiant_national": "NO5007",
+                        "classement": 1170
+                    },
+                    "joueur_2": {
+                        "prenom": "Soren",
+                        "nom": "Dahl",
+                        "date_naissance": "17/01/1991",
+                        "identifiant_national": "NO5005",
+                        "classement": 1190
+                    },
+                    "score_joueur_1": 1.0,
+                    "score_joueur_2": 0.0
+                },
+                {
+                    "joueur_1": {
+                        "prenom": "Hanna",
+                        "nom": "Vik",
+                        "date_naissance": "05/12/1988",
+                        "identifiant_national": "NO5008",
+                        "classement": 1160
+                    },
+                    "joueur_2": {
+                        "prenom": "Ingrid",
+                        "nom": "Nilsen",
+                        "date_naissance": "08/06/1992",
+                        "identifiant_national": "NO5002",
+                        "classement": 1230
+                    },
+                    "score_joueur_1": 0.0,
+                    "score_joueur_2": 1.0
+                }
+            ]
+        }
+    ]
+}
 ]

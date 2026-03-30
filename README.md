@@ -1,12 +1,12 @@
 # Gestionnaire de tournoi d'échecs
 
-Application console en **Python** permettant de gérer des tournois d'échecs hors ligne.
+Application console en **Python 3.11** permettant de gérer des tournois d'échecs hors ligne.
 
 Ce projet a été réalisé dans le cadre du **projet 4 OpenClassrooms**.  
 L'application suit une architecture **MVC** avec une séparation entre :
-- Les **modèles** (`models`) ;
-- Les **vues** (`views`) ;
-- Le **contrôleur** (`controllers`).
+- les **modèles** (`models`) ;
+- les **vues** (`views`) ;
+- le **contrôleur** (`controllers`).
 
 Les données sont enregistrées dans un fichier **JSON**, ce qui permet de conserver les tournois créés, les joueurs, les tours et les matchs.
 
@@ -14,19 +14,19 @@ Les données sont enregistrées dans un fichier **JSON**, ce qui permet de conse
 
 L'application permet de :
 
-- Créer un nouveau tournoi ;
-- Charger un tournoi existant ;
-- Ajouter des joueurs à un tournoi ;
-- Démarrer un tournoi ;
-- Générer les matchs du premier tour ;
-- Saisir les scores des matchs ;
-- Clôturer un tour ;
-- Créer le tour suivant ;
-- Afficher les 4 rapports demandés par le projet :
-  - La liste des joueurs par ordre alphabétique ;
-  - La liste des joueurs par classement ;
-  - La liste des tours d'un tournoi ;
-  - La liste des matchs d'un tour.
+- créer un nouveau tournoi ;
+- charger un tournoi existant ;
+- ajouter des joueurs à un tournoi ;
+- démarrer un tournoi ;
+- générer les matchs du premier tour ;
+- saisir les scores des matchs ;
+- clôturer un tour ;
+- créer le tour suivant ;
+- afficher les 4 rapports demandés par le projet :
+  - la liste des joueurs par ordre alphabétique ;
+  - la liste des joueurs par classement ;
+  - la liste des tours d'un tournoi ;
+  - la liste des matchs d'un tour.
 
 ## Structure du projet
 
@@ -63,7 +63,6 @@ PROJET_4_OC/
 
 ### Création d'un environnement virtuel
 
-Création d'un environnement virtuel  
 Il est recommandé d’utiliser un environnement virtuel afin d’isoler les dépendances du projet.
 
 - Pour Windows :
@@ -112,32 +111,32 @@ python3 main_projet_4_oc.py
 
 Le programme démarre sur un **menu principal** qui permet de :
 
-1. Créer un nouveau tournoi ;
-2. Charger un tournoi existant ;
-3. Afficher les tournois enregistrés ;
-4. Quitter l'application.
+1. créer un nouveau tournoi ;
+2. charger un tournoi existant ;
+3. afficher les tournois enregistrés ;
+4. quitter l'application.
 
 Une fois un tournoi chargé, un **menu de tournoi** permet notamment de :
 
-- Consulter les détails du tournoi ;
-- Ajouter les joueurs ;
-- Afficher les rapports ;
-- Démarrer le tournoi ;
-- Saisir les scores d'un tour ;
-- Clôturer le tour en cours ;
-- Créer le tour suivant.
+- consulter les détails du tournoi ;
+- ajouter les joueurs ;
+- afficher les rapports ;
+- démarrer le tournoi ;
+- saisir les scores d'un tour ;
+- clôturer le tour en cours ;
+- créer le tour suivant.
 
 ### Déroulement général d'un tournoi
 
 Le fonctionnement prévu est le suivant :
 
-1. Créer un tournoi ;
-2. Ajouter les joueurs au tournoi ;
-3. Démarrer le tournoi lorsque 8 joueurs sont enregistrés ;
-4. Saisir les scores des matchs du tour en cours ;
-5. Clôturer le tour ;
-6. Créer le tour suivant ;
-7. Répéter les étapes jusqu'à la fin du tournoi.
+1. créer un tournoi ;
+2. ajouter les joueurs au tournoi ;
+3. démarrer le tournoi lorsque 8 joueurs sont enregistrés ;
+4. saisir les scores des matchs du tour en cours ;
+5. clôturer le tour ;
+6. créer le tour suivant ;
+7. répéter les étapes jusqu'à la fin du tournoi.
 
 ## Données et sauvegarde
 
@@ -155,10 +154,10 @@ Lors de l'enregistrement, l'application crée automatiquement le dossier `donnee
 
 L'application permet d'afficher les 4 rapports demandés :
 
-1. La liste de tous les joueurs par ordre alphabétique ;
-2. La liste de tous les joueurs par classement ;
-3. La liste de tous les tours du tournoi ;
-4. La liste de tous les matchs d'un tour.
+1. la liste de tous les joueurs par ordre alphabétique ;
+2. la liste de tous les joueurs par classement ;
+3. la liste de tous les tours du tournoi ;
+4. la liste de tous les matchs d'un tour.
 
 ## Qualité du code
 
@@ -167,6 +166,22 @@ Le code a été vérifié avec :
 - `black`
 - `flake8`
 - `flake8-html`
+
+## Utiliser Flake8
+
+Pour analyser le code dans le terminal :
+
+```bash
+flake8 .
+```
+
+Ou, selon votre environnement :
+
+```bash
+python -m flake8 .
+```
+
+Cette commande vérifie le respect des règles de style et signale les éventuels écarts.
 
 ## Générer le rapport flake8-html
 
