@@ -200,3 +200,14 @@ def demander_score_valide(message):
             return score
 
         print("Veuillez saisir 0, 0.5 ou 1.")
+
+
+def demander_continuer_saisie_scores():
+    """Demande si l'utilisateur souhaite continuer la saisie des scores."""
+    while True:
+        choix = input("\nContinuer la saisie des scores ? (oui/non) : ").strip().lower()
+
+        if choix in ["oui", "non"]:
+            return choix
+
+        print("Veuillez répondre par 'oui' ou 'non'.")

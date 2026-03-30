@@ -25,6 +25,7 @@ from views.tournoi_view import (
     demander_numero_tour,
     demander_numero_tournoi,
     demander_score_valide,
+    demander_continuer_saisie_scores,
 )
 
 
@@ -253,16 +254,18 @@ def demarrer_tournoi(numero_tournoi, tournoi):
 
 def saisir_scores_tour(tournoi, numero_tournoi):
     """
-    Saisit les scores du tour en cours et valide uniquement
-    les résultats autorisés pour un match d'échecs.
+    Saisit les scores du tour en cours avec sauvegarde progressive.
+
+    Après chaque match validé, les scores sont enregistrés immédiatement
+    dans le fichier JSON.
 
     Résultats acceptés :
     - 1 / 0
     - 0 / 1
     - 0.5 / 0.5
 
-    Si un résultat invalide est saisi, aucun score du tour
-    n'est enregistré.
+    Si l'utilisateur quitte avant la fin, les matchs déjà saisis restent
+    enregistrés. Lors d'une reprise, les matchs déjà renseignés sont ignorés.
     """
     if not tournoi.tours:
         afficher_message("Aucun tour n'a encore été créé.")
@@ -282,9 +285,10 @@ def saisir_scores_tour(tournoi, numero_tournoi):
         (0.5, 0.5),
     }
 
-    scores_a_enregistrer = []
-
     for match in dernier_tour.matchs:
+        if not (match.score_joueur_1 == 0 and match.score_joueur_2 == 0):
+            continue
+
         afficher_match_a_saisir(match)
 
         score_joueur_1 = demander_score_valide("Score du joueur 1 (0, 0.5, 1) : ")
@@ -297,13 +301,20 @@ def saisir_scores_tour(tournoi, numero_tournoi):
             )
             return
 
-        scores_a_enregistrer.append((match, score_joueur_1, score_joueur_2))
-
-    for match, score_joueur_1, score_joueur_2 in scores_a_enregistrer:
         match.score_joueur_1 = score_joueur_1
         match.score_joueur_2 = score_joueur_2
 
-    mettre_a_jour_tournoi_existant(numero_tournoi, tournoi)
+        mettre_a_jour_tournoi_existant(numero_tournoi, tournoi)
+
+        continuer = demander_continuer_saisie_scores()
+
+        if continuer == "non":
+            afficher_message(
+                "\nLes scores déjà saisis ont été enregistrés. "
+                "Vous pourrez reprendre plus tard."
+            )
+            return
+
     afficher_message("\nLes scores du tour ont bien été enregistrés.")
 
 
